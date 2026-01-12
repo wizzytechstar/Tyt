@@ -12,10 +12,13 @@
   <style>
     body {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
     html, body {
       height: 100%;
+      width: 100%;
     }
     
     * {
@@ -25,104 +28,74 @@
     .heading-font {
       font-family: 'Crimson Text', serif;
     }
-    
-    .pdf-background {
-      background: #ffffff;
-    }
-    
-    .pdf-wrapper {
-      background: #f5f5f5;
-    }
-    
-    .section-header {
-      background: #1a1a1a;
-      color: white;
-      border-top: 4px solid #e91e8c;
-    }
-    
-    .week-box {
+
+    .pdf-page {
+      width: 100%;
+      height: 100%;
       background: white;
-      border-left: 5px solid #e91e8c;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
-    
-    .day-cell {
-      background: #f9f9f9;
-      border: 1px solid #e0e0e0;
+
+    .header-section {
+      background: white;
+      border-bottom: 8px solid black;
+      padding: 20px 24px;
+      flex-shrink: 0;
     }
-    
-    .day-cell-title {
-      color: #e91e8c;
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .header-content h1 {
+      font-size: 32px;
       font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.5px;
+      margin: 8px 0 4px 0;
+      line-height: 1.2;
+    }
+
+    .header-content p {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+    }
+
+    .header-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-transform: uppercase;
-    }
-    
-    .track-badge {
-      background: #f9f9f9;
-      border: 1px solid #e91e8c;
-      color: #1a1a1a;
-    }
-    
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #e91e8c, transparent);
-      margin: 2rem 0;
-    }
-    
-    .scroll-container {
-      scrollbar-width: thin;
-      scrollbar-color: #d0d0d0 transparent;
-    }
-    
-    .scroll-container::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    .scroll-container::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    
-    .scroll-container::-webkit-scrollbar-thumb {
-      background: #d0d0d0;
-      border-radius: 4px;
-    }
-    
-    .footer-stamp {
-      color: #e91e8c;
-      font-weight: 700;
-      font-size: 0.9rem;
+      margin-bottom: 8px;
     }
 
     .download-btn {
       background: #e91e8c;
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.375rem;
+      padding: 8px 16px;
+      border-radius: 4px;
       font-weight: 600;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      font-size: 11px;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 6px;
+      flex-shrink: 0;
     }
 
     .download-btn:hover {
       background: #c91670;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(233, 30, 140, 0.3);
-    }
-
-    .download-btn:active {
-      transform: translateY(0);
     }
 
     .download-loader {
       display: none;
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
       border: 2px solid rgba(255,255,255,0.3);
       border-top: 2px solid white;
       border-radius: 50%;
@@ -133,289 +106,153 @@
       to { transform: rotate(360deg); }
     }
 
-    #curriculum-content {
+    .content-section {
+      flex: 1;
+      overflow: hidden;
       background: white;
+      padding: 16px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .week-card {
+      background: #f9f9f9;
+      border-left: 4px solid #e91e8c;
+      padding: 12px;
+      border-radius: 3px;
+      font-size: 10px;
+    }
+
+    .week-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .week-card p {
+      margin: 0;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .track-list {
+      font-size: 9px;
+      color: #666;
+    }
+
+    .track-list li {
+      margin: 4px 0;
+      list-style: none;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .track-list li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #e91e8c;
+      font-weight: 700;
+    }
+
+    .footer-section {
+      background: black;
+      color: white;
+      padding: 12px 24px;
+      border-top: 4px solid #e91e8c;
+      flex-shrink: 0;
+      font-size: 9px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .footer-stamp {
+      color: #e91e8c;
+      font-weight: 700;
+    }
+
+    .footer-text {
+      color: #999;
+      margin: 3px 0;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full pdf-wrapper overflow-hidden">
-  <div class="h-full w-full flex flex-col overflow-auto scroll-container"><!-- Header with Download Button -->
-   <header class="flex-shrink-0 px-8 py-10 bg-white border-b-4 border-black">
-    <div class="max-w-5xl mx-auto">
-     <div class="flex items-start justify-between gap-4 mb-4">
-      <div>
-       <div class="text-xs font-bold text-black tracking-widest mb-2 uppercase">
-        DIGITAL SKILLS ACADEMY
-       </div>
-       <h1 id="main-title" class="heading-font text-5xl font-bold text-black mb-2">FULL 12-WEEK CURRICULUM</h1>
-       <p id="subtitle" class="text-gray-600 text-lg font-light">Daily &amp; Weekly Breakdown</p>
-      </div><button id="download-button" class="download-btn" onclick="downloadCurriculum()">
-       <svg class="download-loader" id="download-spinner" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line>
-       </svg><span id="download-text">Download PDF</span> </button>
-     </div><!-- Decorative Line -->
-     <div class="mt-6 flex items-center gap-4">
-      <div class="h-0.5 flex-1 bg-black"></div>
-      <div class="w-3 h-3 bg-black"></div>
-      <div class="h-0.5 flex-1 bg-black"></div>
+ <body>
+  <div class="pdf-page"><!-- Header -->
+   <header class="header-section">
+    <div class="header-top">
+     <div class="header-content">
+      <div class="header-label">
+       DIGITAL SKILLS ACADEMY
+      </div>
+      <h1 id="main-title">FULL 12-WEEK CURRICULUM</h1>
+      <p id="subtitle">Daily &amp; Weekly Breakdown</p>
+     </div><button id="download-button" onclick="downloadCurriculum()" class="download-btn"> <span id="download-text">Download PDF</span>
+      <div id="download-spinner" class="download-loader"></div></button>
+    </div>
+   </header><!-- Content -->
+   <div class="content-section"><!-- Week 1 -->
+    <div class="week-card">
+     <h3>WEEK 1</h3>
+     <p><strong>Orientation &amp; Digital Foundations</strong></p>
+     <ul class="track-list" style="margin-top: 6px;">
+      <li>Program onboarding &amp; code of conduct</li>
+      <li>Digital literacy &amp; online tools</li>
+      <li>Skill assessment &amp; track confirmation</li>
+      <li>Freelancing &amp; remote work intro</li>
+      <li>Professionalism &amp; communication</li>
+     </ul>
+    </div><!-- Weeks 2-6 -->
+    <div class="week-card">
+     <h3>WEEKS 2–6</h3>
+     <p><strong>Core Skill Training</strong></p>
+     <p>Choose 1 track • 20+ hours intensive</p>
+     <ul class="track-list" style="margin-top: 6px; font-size: 8px;">
+      <li>Content Writing &amp; Copywriting</li>
+      <li>Social Media Management</li>
+      <li>Graphic Design</li>
+      <li>Video Editing &amp; Production</li>
+      <li>Virtual Assistance</li>
+      <li>Web Design (No-Code)</li>
+      <li>Facebook &amp; Instagram Ads</li>
+      <li>Cartoon Creation Mastery</li>
+      <li>AI Mastery</li>
+     </ul>
+    </div><!-- Weeks 7-12 -->
+    <div class="week-card">
+     <h3>WEEKS 7–12</h3>
+     <p><strong>Portfolio &amp; Job Activation</strong></p>
+     <ul class="track-list" style="margin-top: 6px;">
+      <li><strong>Weeks 7-8:</strong> Build portfolio &amp; certification</li>
+      <li><strong>Weeks 9-11:</strong> Platform onboarding &amp; outreach</li>
+      <li><strong>Week 12:</strong> Scaling &amp; alumni support</li>
+      <li>Graduation &amp; certification issuance</li>
+     </ul>
+    </div>
+   </div><!-- Footer -->
+   <footer class="footer-section">
+    <div class="footer-content">
+     <div>
+      <div class="footer-stamp">
+       DIGITAL SKILLS ACADEMY
+      </div>
+      <p class="footer-text">12-Week Intensive Program</p>
      </div>
-    </div>
-   </header><!-- Main Content -->
-   <main id="curriculum-content" class="flex-1 px-8 py-8 overflow-auto bg-white">
-    <div class="max-w-5xl mx-auto space-y-8"><!-- WEEK 1 -->
-     <section class="week-box p-6">
-      <div class="heading-font text-3xl font-bold text-black mb-1">
-       WEEK 1
-      </div>
-      <h2 class="text-sm font-bold text-black tracking-widest mb-6 uppercase">Orientation &amp; Digital Foundations</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-       <div class="day-cell p-4">
-        <div class="day-cell-title mb-2">
-         Day 1
-        </div>
-        <p class="text-sm text-gray-700 leading-relaxed">Program onboarding, expectations, code of conduct, overview of global digital economy</p>
-       </div>
-       <div class="day-cell p-4">
-        <div class="day-cell-title mb-2">
-         Day 2
-        </div>
-        <p class="text-sm text-gray-700 leading-relaxed">Digital literacy, online tools overview, email &amp; cloud usage</p>
-       </div>
-       <div class="day-cell p-4">
-        <div class="day-cell-title mb-2">
-         Day 3
-        </div>
-        <p class="text-sm text-gray-700 leading-relaxed">Skill aptitude assessment &amp; track confirmation</p>
-       </div>
-       <div class="day-cell p-4">
-        <div class="day-cell-title mb-2">
-         Day 4
-        </div>
-        <p class="text-sm text-gray-700 leading-relaxed">Introduction to freelancing, remote work &amp; global platforms</p>
-       </div>
-       <div class="day-cell p-4">
-        <div class="day-cell-title mb-2">
-         Day 5
-        </div>
-        <p class="text-sm text-gray-700 leading-relaxed">Mindset, professionalism, communication &amp; accountability</p>
-       </div>
-      </div>
-     </section>
-     <div class="section-divider"></div><!-- WEEKS 2-6 -->
-     <section class="week-box p-6">
-      <div class="heading-font text-3xl font-bold text-black mb-1">
-       WEEKS 2–6
-      </div>
-      <h2 class="text-sm font-bold text-black tracking-widest mb-6 uppercase">Core Skill Training (Track-Specific)</h2>
-      <p class="text-sm text-gray-600 mb-6 font-medium">Participants choose one skill track and complete 20+ hours of intensive training:</p>
-      <div class="space-y-8"><!-- Track 1 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">1. CONTENT WRITING &amp; COPYWRITING</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Master persuasive writing for digital platforms. Learn to craft compelling copy that converts audiences into customers.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> SEO copywriting, email marketing sequences, landing page psychology, blog content strategy, social media hooks, sales funnels, storytelling techniques, A/B testing copy</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> Google Docs, Hemingway Editor, Grammarly, SEMrush</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> 5 SEO blog posts, 1 email campaign (10 emails), 3 landing page copies, social media content calendar (30 days)</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 2 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">2. SOCIAL MEDIA MANAGEMENT</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Develop end-to-end social media strategy. Manage multiple platforms and grow engaged communities.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> Platform mastery (Instagram, TikTok, LinkedIn, Facebook), content calendars, community management, influencer collaboration, hashtag strategy, analytics &amp; metrics, paid social advertising, crisis management</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> Meta Business Suite, Later, Buffer, Hootsuite, Canva</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> 90-day content calendar, 4 platform profiles, monthly analytics reports, 1 paid campaign management</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 3 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">3. GRAPHIC DESIGN</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Create professional visual content for marketing and branding. Build a strong design portfolio.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> Design principles, color theory, typography, brand identity, social media templates, print design, UI/UX basics, photo editing, infographics</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> Canva Pro, Figma, Adobe Creative Suite (basics), Photoshop</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> Brand identity package, 50+ social media templates, 10 marketing collateral pieces, portfolio website</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 4 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">4. VIDEO EDITING &amp; PRODUCTION</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Master video creation from concept to final cut. Build a professional showreel.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> Video shooting basics, color grading, sound design, transitions &amp; effects, motion graphics, YouTube optimization, Shorts/Reels creation, storytelling through video</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> DaVinci Resolve, CapCut, Adobe Premiere, Final Cut Pro</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> 5 YouTube videos (edited), 10 Reels/Shorts, 1 promotional video, professional showreel</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 5 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">5. VIRTUAL ASSISTANCE</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Provide administrative support remotely. Become a valued assistant to entrepreneurs and executives.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> Email &amp; calendar management, data entry, customer service, project coordination, CRM systems, scheduling tools, research &amp; research compilation, proposal writing</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> Asana, Monday.com, Trello, Slack, Zapier, Google Workspace</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> Process documentation templates, client management system setup, 1 month service experience</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 6 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">6. WEB DESIGN (NO-CODE)</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Build fully functional websites without coding. Master modern web design platforms.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> UX/UI design principles, responsive design, conversion optimization, e-commerce setup, landing page psychology, SEO basics, form optimization, A/B testing</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> Webflow, Wix, WordPress, Elementor, Figma</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> 3 complete websites (portfolio, e-commerce, service-based), 5 landing pages, client project</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 7 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">7. FACEBOOK &amp; INSTAGRAM ADVERTISING</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Master paid social advertising. Manage budgets and optimize campaigns for ROI.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> Meta Ads Manager, audience targeting, pixel setup, funnel optimization, A/B testing, budget allocation, ROAS tracking, creative best practices, analytics interpretation</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> Meta Ads Manager, Facebook Business Suite, Ads Library, Analytics</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> 3 live ad campaigns ($500+ spend), performance reports, strategy documentation, client case study</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 8 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">8. CARTOON CREATION MASTERY</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Create engaging animated content and illustrations. Develop unique artistic style.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> Character design, storyboarding, animation principles (12 principles), digital illustration, frame-by-frame animation, branding through illustration, animation for social media</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> Procreate, Adobe Animate, After Effects, Clip Studio Paint</p>
-         <p><span class="font-semibold text-pink-606">Deliverables:</span> 10 original characters, 1 animated short film (30-60 seconds), social media animation series, illustration portfolio</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div><!-- Track 9 -->
-       <div class="bg-gray-50 p-5 rounded border-l-4 border-pink-600">
-        <h3 class="font-bold text-gray-900 mb-3 text-base">9. AI MASTERY</h3>
-        <div class="text-xs text-gray-700 space-y-2 leading-relaxed">
-         <p><span class="font-semibold text-pink-600">Overview:</span> Harness AI tools to automate workflows and enhance productivity. Stay ahead of AI trends.</p>
-         <p><span class="font-semibold text-pink-600">Key Topics:</span> ChatGPT for content creation, Midjourney for image generation, AI video generators, automation workflows (Zapier), AI writing assistants, prompt engineering, AI ethics, business automation</p>
-         <p><span class="font-semibold text-pink-600">Tools:</span> ChatGPT, Midjourney, DALL-E, Eleven Labs, Zapier, Make.com, Runwayml</p>
-         <p><span class="font-semibold text-pink-600">Deliverables:</span> 20 AI-generated content pieces, 5 automation workflows setup, business process optimization document, AI case studies</p>
-         <p><span class="font-semibold text-pink-600">Time Commitment:</span> 20+ hours | Certification available</p>
-        </div>
-       </div>
-      </div>
-     </section>
-     <div class="section-divider"></div><!-- WEEKS 7-8 -->
-     <section class="week-box p-6">
-      <div class="heading-font text-3xl font-bold text-black mb-1">
-       WEEKS 7–8
-      </div>
-      <h2 class="text-sm font-bold text-black tracking-widest mb-6 uppercase">Portfolio, Certification &amp; Positioning</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-       <div>
-        <h3 class="text-sm font-bold text-black tracking-widest mb-4 flex items-center gap-2"><span class="text-pink-600">■</span> BUILD</h3>
-        <ul class="space-y-2">
-         <li class="flex items-start gap-3"><span class="text-pink-600 font-bold mt-1">→</span> <span class="text-sm text-gray-700">Professional portfolios</span></li>
-         <li class="flex items-start gap-3"><span class="text-pink-600 font-bold mt-1">→</span> <span class="text-sm text-gray-700">LinkedIn profiles</span></li>
-         <li class="flex items-start gap-3"><span class="text-pink-600 font-bold mt-1">→</span> <span class="text-sm text-gray-700">Platform profiles</span></li>
-        </ul>
-       </div>
-       <div>
-        <h3 class="text-sm font-bold text-black tracking-widest mb-4 flex items-center gap-2"><span class="text-pink-600">■</span> ADDITIONAL</h3>
-        <ul class="space-y-2">
-         <li class="flex items-start gap-3"><span class="text-pink-600 font-bold mt-1">→</span> <span class="text-sm text-gray-700">Personal branding training</span></li>
-         <li class="flex items-start gap-3"><span class="text-pink-600 font-bold mt-1">→</span> <span class="text-sm text-gray-700">Certificate Issuance</span></li>
-         <li class="flex items-start gap-3"><span class="text-pink-600 font-bold mt-1">→</span> <span class="text-sm text-gray-700">Pricing &amp; proposal writing</span></li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <div class="section-divider"></div><!-- WEEKS 9-11 -->
-     <section class="week-box p-6">
-      <div class="heading-font text-3xl font-bold text-black mb-1">
-       WEEKS 9–11
-      </div>
-      <h2 class="text-sm font-bold text-black tracking-widest mb-6 uppercase">Job &amp; Gig Activation</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-       <div class="bg-black p-4 text-white">
-        <div class="text-xs font-bold tracking-widest mb-2 text-pink-400">
-         PLATFORM
-        </div>
-        <p class="text-sm font-medium">Upwork, Fiverr, LinkedIn Onboarding</p>
-       </div>
-       <div class="bg-black p-4 text-white">
-        <div class="text-xs font-bold tracking-widest mb-2 text-pink-400">
-         OUTREACH
-        </div>
-        <p class="text-sm font-medium">Cold Outreach Systems</p>
-       </div>
-       <div class="bg-black p-4 text-white">
-        <div class="text-xs font-bold tracking-widest mb-2 text-pink-400">
-         INTERVIEW
-        </div>
-        <p class="text-sm font-medium">Interview Preparation</p>
-       </div>
-       <div class="bg-black p-4 text-white">
-        <div class="text-xs font-bold tracking-widest mb-2 text-pink-400">
-         LINKAGES
-        </div>
-        <p class="text-sm font-medium">Internship &amp; Agency Connections</p>
-       </div>
-      </div>
-     </section>
-     <div class="section-divider"></div><!-- WEEK 12 -->
-     <section class="week-box p-6 border-l-0 border-l-8 border-l-black">
-      <div class="heading-font text-3xl font-bold text-black mb-1">
-       WEEK 12
-      </div>
-      <h2 class="text-sm font-bold text-black tracking-widest mb-6 uppercase">Transition &amp; Alumni Support</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-       <div class="day-cell p-4 bg-black text-white">
-        <div class="text-xs font-bold text-pink-400 mb-2 uppercase tracking-widest">
-         Day 1
-        </div>
-        <p class="text-sm leading-relaxed">Income tracking &amp; scaling strategies</p>
-       </div>
-       <div class="day-cell p-4 bg-black text-white">
-        <div class="text-xs font-bold text-pink-400 mb-2 uppercase tracking-widest">
-         Day 2
-        </div>
-        <p class="text-sm leading-relaxed">Ethics &amp; long-term career planning</p>
-       </div>
-       <div class="day-cell p-4 bg-black text-white">
-        <div class="text-xs font-bold text-pink-400 mb-2 uppercase tracking-widest">
-         Day 3
-        </div>
-        <p class="text-sm leading-relaxed">Alumni community onboarding</p>
-       </div>
-       <div class="day-cell p-4 bg-black text-white">
-        <div class="text-xs font-bold text-pink-400 mb-2 uppercase tracking-widest">
-         Day 4
-        </div>
-        <p class="text-sm leading-relaxed">Government impact documentation</p>
-       </div>
-       <div class="day-cell p-4" style="background: linear-gradient(135deg, #e91e8c 0%, #1a1a1a 100%); color: white;">
-        <div class="text-xs font-bold text-white mb-2 uppercase tracking-widest">
-         Day 5
-        </div>
-        <p class="text-sm leading-relaxed font-bold">Graduation &amp; Certification</p>
-       </div>
-      </div>
-     </section>
-    </div>
-   </main><!-- Footer -->
-   <footer class="flex-shrink-0 px-8 py-6 bg-black text-white border-t-4 border-pink-600">
-    <div class="max-w-5xl mx-auto">
-     <div class="grid grid-cols-3 gap-4 text-xs">
-      <div><span class="footer-stamp">DIGITAL SKILLS ACADEMY</span>
-       <p class="text-gray-400 mt-1">12-Week Intensive Program</p>
-      </div>
-      <div class="text-center">
-       <p class="text-gray-400">Transform Your Future</p>
-       <p class="text-gray-400">Master Digital Skills</p>
-      </div>
-      <div class="text-right">
-       <p class="text-gray-400">Global Workforce Ready</p>
-       <p class="footer-stamp mt-1">Join Now</p>
-      </div>
+     <div style="text-align: center;">
+      <p class="footer-text">Transform Your Future</p>
+      <p class="footer-text">Master Digital Skills</p>
+     </div>
+     <div style="text-align: right;">
+      <p class="footer-text">Global Workforce Ready</p>
+      <p class="footer-stamp">Join Now</p>
      </div>
     </div>
    </footer>
@@ -442,39 +279,19 @@
       if (subtitle) {
         subtitle.textContent = config.subtitle || defaultConfig.subtitle;
       }
-      
-      const customFont = config.font_family || defaultConfig.font_family;
-      document.body.style.fontFamily = `${customFont}, sans-serif`;
-      
-      const baseSize = config.font_size || defaultConfig.font_size;
-      document.documentElement.style.fontSize = `${baseSize}px`;
     }
     
     function mapToCapabilities(config) {
       return {
         recolorables: [
           {
-            get: () => config.background_color || defaultConfig.background_color,
-            set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
-          },
-          {
             get: () => config.accent_color || defaultConfig.accent_color,
             set: (value) => { config.accent_color = value; window.elementSdk.setConfig({ accent_color: value }); }
-          },
-          {
-            get: () => config.text_color || defaultConfig.text_color,
-            set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
           }
         ],
         borderables: [],
-        fontEditable: {
-          get: () => config.font_family || defaultConfig.font_family,
-          set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
-        },
-        fontSizeable: {
-          get: () => config.font_size || defaultConfig.font_size,
-          set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
-        }
+        fontEditable: undefined,
+        fontSizeable: undefined
       };
     }
     
@@ -501,65 +318,41 @@
       const spinner = document.getElementById('download-spinner');
       const text = document.getElementById('download-text');
       
-      // Show loading state
       button.disabled = true;
       spinner.style.display = 'block';
       text.textContent = 'Generating...';
       
       try {
-        const element = document.getElementById('curriculum-content');
-        if (!element) {
-          throw new Error('Content not found');
-        }
-
-        // Scroll to top to capture everything
-        const originalScroll = element.scrollTop;
-        element.scrollTop = 0;
-        await new Promise(r => setTimeout(r, 100));
-
-        // Convert HTML → Canvas with better settings
+        const element = document.querySelector('.pdf-page');
+        
         const canvas = await html2canvas(element, {
           scale: 2,
           useCORS: true,
           logging: false,
           backgroundColor: '#ffffff',
-          allowTaint: true,
-          onclone: (clonedDocument) => {
-            const clonedElement = clonedDocument.getElementById('curriculum-content');
-            if (clonedElement) {
-              clonedElement.style.maxWidth = '100%';
-              clonedElement.style.width = '100%';
-            }
-          }
+          allowTaint: true
         });
 
-        const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'mm', 'a4');
-        const imgWidth = 190;  
+        const imgData = canvas.toDataURL('image/png');
+        const imgWidth = 190;
         const pageHeight = 277;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        const margin = 10;
 
-        let heightLeft = imgHeight;
-        let position = margin;
+        let position = 10;
+        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
 
-        pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-
+        let heightLeft = imgHeight - pageHeight;
         while (heightLeft > 0) {
-          position = heightLeft - imgHeight + margin;
+          position = heightLeft - imgHeight + 10;
           pdf.addPage();
-          pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+          pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
         }
 
         pdf.save('12-Week-Digital-Skills-Curriculum.pdf');
         
-        // Restore scroll
-        element.scrollTop = originalScroll;
-        
-        // Reset button
-        text.textContent = 'Download Complete!';
+        text.textContent = 'Downloaded!';
         setTimeout(() => {
           spinner.style.display = 'none';
           text.textContent = 'Download PDF';
@@ -567,7 +360,7 @@
         }, 2000);
       } catch (error) {
         console.error('Download failed:', error);
-        text.textContent = 'Download Failed';
+        text.textContent = 'Failed';
         setTimeout(() => {
           spinner.style.display = 'none';
           text.textContent = 'Download PDF';
@@ -576,5 +369,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bcc0104b2fa1ddf',t:'MTc2ODIxNDA5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bcc12328162edf3',t:'MTc2ODIxNDc5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
