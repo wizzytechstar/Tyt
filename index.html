@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="h-full">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>12-Week Digital Skills Curriculum</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&amp;family=Lato:wght@400;700;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -48,6 +48,7 @@
         height: 297mm;
         margin: 0;
         padding: 0;
+        background: white !important;
       }
       .pdf-page {
         width: 210mm;
@@ -68,6 +69,15 @@
       border-bottom: 4px solid #e91e8c;
     }
 
+    @media print {
+      .header-section {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color: white !important;
+      }
+    }
+
     .header-top {
       display: flex;
       justify-content: space-between;
@@ -81,6 +91,15 @@
       margin: 0;
       line-height: 1.1;
       letter-spacing: -0.5px;
+      color: white;
+    }
+
+    @media print {
+      .header-content h1 {
+        color: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
     }
 
     .header-content p {
@@ -89,6 +108,14 @@
       margin: 8px 0 0 0;
       letter-spacing: 1px;
       font-weight: 600;
+    }
+
+    @media print {
+      .header-content p {
+        color: #e91e8c !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
     }
 
     .header-label {
@@ -101,6 +128,15 @@
       opacity: 0.9;
     }
 
+    @media print {
+      .header-label {
+        color: #e91e8c !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        opacity: 0.9 !important;
+      }
+    }
+
     .content-section {
       flex: 1;
       overflow: hidden;
@@ -109,6 +145,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 20px;
+    }
+
+    @media print {
+      .content-section {
+        background: #fafafa !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
     }
 
     .week-card {
@@ -120,6 +164,16 @@
       overflow-y: auto;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: box-shadow 0.3s ease;
+    }
+
+    @media print {
+      .week-card {
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        border-left: 5px solid #e91e8c !important;
+        box-shadow: none !important;
+      }
     }
 
     .week-card:hover {
@@ -134,6 +188,14 @@
       letter-spacing: -0.3px;
     }
 
+    @media print {
+      .week-card h3 {
+        color: #1a1a1a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
     .week-card p {
       margin: 0 0 14px 0;
       color: #444;
@@ -141,14 +203,38 @@
       font-size: 17px;
     }
 
+    @media print {
+      .week-card p {
+        color: #444 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
     .week-card strong {
       color: #e91e8c;
       font-weight: 700;
     }
 
+    @media print {
+      .week-card strong {
+        color: #e91e8c !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
     .track-list {
       font-size: 16px;
       color: #555;
+    }
+
+    @media print {
+      .track-list {
+        color: #555 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
     }
 
     .track-list li {
@@ -157,6 +243,15 @@
       padding-left: 22px;
       position: relative;
       line-height: 1.7;
+      color: #555;
+    }
+
+    @media print {
+      .track-list li {
+        color: #555 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
     }
 
     .track-list li:before {
@@ -168,6 +263,14 @@
       font-size: 18px;
     }
 
+    @media print {
+      .track-list li:before {
+        color: #e91e8c !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
     .footer-section {
       background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
       color: white;
@@ -175,6 +278,16 @@
       border-top: 4px solid #e91e8c;
       flex-shrink: 0;
       font-size: 14px;
+    }
+
+    @media print {
+      .footer-section {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color: white !important;
+        border-top: 4px solid #e91e8c !important;
+      }
     }
 
     .footer-content {
@@ -189,6 +302,14 @@
       font-size: 16px;
     }
 
+    @media print {
+      .footer-stamp {
+        color: #e91e8c !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
     .footer-text {
       color: #aaa;
       margin: 6px 0;
@@ -196,108 +317,93 @@
       line-height: 1.6;
     }
 
-    .download-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #e91e8c;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      z-index: 1000;
-      transition: background 0.3s ease;
-    }
-
-    .download-button:hover {
-      background: #c71670;
-    }
-
-    .download-button:active {
-      transform: scale(0.98);
-    }
-
     @media print {
-      .download-button {
-        display: none;
+      .footer-text {
+        color: #aaa !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
     }
   </style>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body><button class="download-button" id="downloadBtn">⬇ Download PDF</button>
-  <div class="pdf-page"><!-- Header -->
-   <header class="header-section">
-    <div class="header-top">
-     <div class="header-content">
-      <div class="header-label">
-       DIGITAL SKILLS ACADEMY
+</head>
+<body>
+  <div class="pdf-page">
+    
+    <!-- Header -->
+    <header class="header-section">
+      <div class="header-top">
+        <div class="header-content">
+          <div class="header-label">DIGITAL SKILLS ACADEMY</div>
+          <h1 id="main-title">FULL 12-WEEK CURRICULUM</h1>
+          <p id="subtitle">Daily & Weekly Breakdown</p>
+        </div>
       </div>
-      <h1 id="main-title">FULL 12-WEEK CURRICULUM</h1>
-      <p id="subtitle">Daily &amp; Weekly Breakdown</p>
-     </div>
-    </div>
-   </header><!-- Content -->
-   <div class="content-section"><!-- Week 1 -->
-    <div class="week-card">
-     <h3>WEEK 1</h3>
-     <p><strong>Orientation &amp; Digital Foundations</strong></p>
-     <ul class="track-list">
-      <li>Program onboarding, expectations, code of conduct, overview of global digital economy</li>
-      <li>Digital literacy, online tools overview, email &amp; cloud usage</li>
-      <li>Skill aptitude assessment &amp; track confirmation</li>
-      <li>Introduction to freelancing, remote work &amp; global platforms</li>
-      <li>Mindset, professionalism, communication &amp; accountability</li>
-     </ul>
-    </div><!-- Weeks 2-6 -->
-    <div class="week-card">
-     <h3>WEEKS 2–6</h3>
-     <p><strong>Core Skill Training</strong></p>
-     <p style="font-size: 11px; margin-bottom: 8px;">Choose one track ����� 20+ hours intensive</p>
-     <ul class="track-list">
-      <li>Content Writing &amp; Copywriting</li>
-      <li>Social Media Management</li>
-      <li>Graphic Design</li>
-      <li>Video Editing</li>
-      <li>Virtual Assistance</li>
-      <li>Web Design (No-code / WordPress)</li>
-      <li>Facebook &amp; Instagram Advertising</li>
-      <li>Cartoon Creation Mastery</li>
-      <li>AI Mastery</li>
-     </ul>
-    </div><!-- Weeks 7-12 -->
-    <div class="week-card">
-     <h3>WEEKS 7–12</h3>
-     <ul class="track-list">
-      <li><strong>Weeks 7–8:</strong> Professional portfolios, LinkedIn profiles, platform profiles, personal branding training, certificate issuance, pricing &amp; proposal writing</li>
-      <li style="margin-top: 8px;"><strong>Weeks 9–11:</strong> Platform onboarding (Upwork, Fiverr, LinkedIn), cold outreach systems, interview preparation, internship &amp; agency linkages</li>
-      <li style="margin-top: 8px;"><strong>Week 12:</strong> Income tracking &amp; scaling, ethics &amp; career planning, alumni community, government impact documentation, graduation &amp; certification</li>
-     </ul>
-    </div>
-   </div><!-- Footer -->
-   <footer class="footer-section">
-    <div class="footer-content">
-     <div>
-      <div class="footer-stamp">
-       DIGITAL SKILLS ACADEMY
+    </header>
+
+    <!-- Content -->
+    <div class="content-section">
+      <!-- Week 1 -->
+      <div class="week-card">
+        <h3>WEEK 1</h3>
+        <p><strong>Orientation & Digital Foundations</strong></p>
+        <ul class="track-list">
+          <li>Program onboarding, expectations, code of conduct, overview of global digital economy</li>
+          <li>Digital literacy, online tools overview, email & cloud usage</li>
+          <li>Skill aptitude assessment & track confirmation</li>
+          <li>Introduction to freelancing, remote work & global platforms</li>
+          <li>Mindset, professionalism, communication & accountability</li>
+        </ul>
       </div>
-      <p class="footer-text">12-Week Intensive Program</p>
-     </div>
-     <div style="text-align: center;">
-      <p class="footer-text">Transform Your Future</p>
-      <p class="footer-text">Master Digital Skills</p>
-     </div>
-     <div style="text-align: right;">
-      <p class="footer-text">Global Workforce Ready</p>
-      <p class="footer-stamp">Join Now</p>
-     </div>
+
+      <!-- Weeks 2-6 -->
+      <div class="week-card">
+        <h3>WEEKS 2–6</h3>
+        <p><strong>Core Skill Training</strong></p>
+        <p style="font-size: 11px; margin-bottom: 8px;">Choose one track • 20+ hours intensive</p>
+        <ul class="track-list">
+          <li>Content Writing & Copywriting</li>
+          <li>Social Media Management</li>
+          <li>Graphic Design</li>
+          <li>Video Editing</li>
+          <li>Virtual Assistance</li>
+          <li>Web Design (No-code / WordPress)</li>
+          <li>Facebook & Instagram Advertising</li>
+          <li>Cartoon Creation Mastery</li>
+          <li>AI Mastery</li>
+        </ul>
+      </div>
+
+      <!-- Weeks 7-12 -->
+      <div class="week-card">
+        <h3>WEEKS 7–12</h3>
+        <ul class="track-list">
+          <li><strong>Weeks 7–8:</strong> Professional portfolios, LinkedIn profiles, platform profiles, personal branding training, certificate issuance, pricing & proposal writing</li>
+          <li style="margin-top: 8px;"><strong>Weeks 9–11:</strong> Platform onboarding (Upwork, Fiverr, LinkedIn), cold outreach systems, interview preparation, internship & agency linkages</li>
+          <li style="margin-top: 8px;"><strong>Week 12:</strong> Income tracking & scaling, ethics & career planning, alumni community, government impact documentation, graduation & certification</li>
+        </ul>
+      </div>
     </div>
-   </footer>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="footer-content">
+        <div>
+          <div class="footer-stamp">DIGITAL SKILLS ACADEMY</div>
+          <p class="footer-text">12-Week Intensive Program</p>
+        </div>
+        <div style="text-align: center;">
+          <p class="footer-text">Transform Your Future</p>
+          <p class="footer-text">Master Digital Skills</p>
+        </div>
+        <div style="text-align: right;">
+          <p class="footer-text">Global Workforce Ready</p>
+          <p class="footer-stamp">Join Now</p>
+        </div>
+      </div>
+    </footer>
+
   </div>
+  
   <script>
     const defaultConfig = {
       main_title: "FULL 12-WEEK CURRICULUM",
@@ -352,5 +458,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bcc85053621a17a',t:'MTc2ODIxOTUwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
