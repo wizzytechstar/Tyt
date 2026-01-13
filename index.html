@@ -3,445 +3,315 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12-Week Digital Skills Curriculum</title>
+  <title>Church Letterhead - All Nations Christian Assembly</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&amp;family=Lato:wght@400;700;900&amp;display=swap" rel="stylesheet">
   <script src="/_sdk/element_sdk.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
   <style>
     body {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
     
-    html, body {
-      height: 100%;
-      width: 100%;
-    }
-    
-    * {
-      font-family: 'Lato', sans-serif;
-    }
-    
-    .heading-font {
-      font-family: 'Crimson Text', serif;
-    }
-
-    .pdf-page {
-      width: 100%;
-      height: 100%;
-      background: white;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      box-shadow: none;
-    }
-
     @media print {
-      html, body {
-        width: 8.27in;
-        height: 11.69in;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: white !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+      @page {
+        size: A4;
+        margin: 0;
       }
-      .pdf-page {
-        width: 8.27in;
-        height: 11.69in;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: visible !important;
-        box-shadow: none;
-        page-break-after: avoid;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
       }
-    }
-
-    .header-section {
-      background: #1a1a1a;
-      background-image: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      color: white;
-      padding: 32px 20px;
-      flex-shrink: 0;
-      border-bottom: 4px solid #e91e8c;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-
-    @media print {
-      .header-section {
-        background: #1a1a1a !important;
-        background-image: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        color: white !important;
-        border-bottom: 4px solid #e91e8c !important;
+      .no-print {
+        display: none !important;
       }
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .header-content h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin: 0;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-      color: white;
-    }
-
-    @media print {
-      .header-content h1 {
-        color: white !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .header-content p {
-      font-size: 16px;
-      color: #e91e8c;
-      margin: 8px 0 0 0;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-
-    @media print {
-      .header-content p {
-        color: #e91e8c !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .header-label {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      color: #e91e8c;
-      opacity: 0.9;
-    }
-
-    @media print {
-      .header-label {
-        color: #e91e8c !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        opacity: 0.9 !important;
-      }
-    }
-
-    .content-section {
-      flex: 1;
-      overflow: hidden;
-      background: #fafafa;
-      padding: 24px 16px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-    }
-
-    @media print {
-      .content-section {
-        background: #fafafa !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .week-card {
-      background: white;
-      border-left: 5px solid #e91e8c;
-      padding: 18px;
-      border-radius: 6px;
-      font-size: 16px;
-      overflow-y: auto;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      transition: box-shadow 0.3s ease;
-    }
-
-    @media print {
-      .week-card {
-        background: white !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        border-left: 5px solid #e91e8c !important;
+      .letterhead-page {
         box-shadow: none !important;
       }
     }
-
-    .week-card:hover {
-      box-shadow: 0 4px 12px rgba(233, 30, 140, 0.15);
+    
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
     }
-
-    .week-card h3 {
-      margin: 0 0 16px 0;
-      font-size: 26px;
-      font-weight: 700;
-      color: #1a1a1a;
-      letter-spacing: -0.3px;
+    
+    .font-cormorant {
+      font-family: 'Cormorant Garamond', serif;
     }
-
-    @media print {
-      .week-card h3 {
-        color: #1a1a1a !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .week-card p {
-      margin: 0 0 14px 0;
-      color: #444;
-      line-height: 1.7;
-      font-size: 17px;
-    }
-
-    @media print {
-      .week-card p {
-        color: #444 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .week-card strong {
-      color: #e91e8c;
-      font-weight: 700;
-    }
-
-    @media print {
-      .week-card strong {
-        color: #e91e8c !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .track-list {
-      font-size: 16px;
-      color: #555;
-    }
-
-    @media print {
-      .track-list {
-        color: #555 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .track-list li {
-      margin: 10px 0;
-      list-style: none;
-      padding-left: 22px;
+    
+    .letterhead-page {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fffef9;
       position: relative;
-      line-height: 1.7;
-      color: #555;
+      overflow: hidden;
     }
-
-    @media print {
-      .track-list li {
-        color: #555 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .track-list li:before {
-      content: "✓";
+    
+    .floral-border-left {
       position: absolute;
       left: 0;
-      color: #e91e8c;
-      font-weight: 700;
-      font-size: 18px;
+      top: 0;
+      bottom: 0;
+      width: 45mm;
+      pointer-events: none;
     }
-
-    @media print {
-      .track-list li:before {
-        color: #e91e8c !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
+    
+    .floral-border-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 45mm;
+      pointer-events: none;
     }
-
-    .footer-section {
-      background: #1a1a1a;
-      background-image: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      color: white;
-      padding: 16px 20px;
-      border-top: 4px solid #e91e8c;
-      flex-shrink: 0;
-      font-size: 14px;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
+    
+    .content-area {
+      margin-left: 35mm;
+      margin-right: 35mm;
+      padding-top: 25mm;
+      padding-bottom: 20mm;
     }
-
-    @media print {
-      .footer-section {
-        background: #1a1a1a !important;
-        background-image: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        color: white !important;
-        border-top: 4px solid #e91e8c !important;
-      }
+    
+    .divider-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #8B4513, #D4AF37, #8B4513, transparent);
     }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-    }
-
-    .footer-stamp {
-      color: #e91e8c;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    @media print {
-      .footer-stamp {
-        color: #e91e8c !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-    }
-
-    .footer-text {
-      color: #aaa;
-      margin: 6px 0;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    @media print {
-      .footer-text {
-        color: #aaa !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
+    
+    .writing-lines {
+      border-bottom: 1px solid #d4c4a8;
+      min-height: 12mm;
+      margin-bottom: 2mm;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body>
-  <div class="pdf-page"><!-- Header -->
-   <header class="header-section">
-    <div class="header-top">
-     <div class="header-content">
-      <div class="header-label">
-       DIGITAL SKILLS ACADEMY
-      </div>
-      <h1 id="main-title">FULL 12-WEEK CURRICULUM</h1>
-      <p id="subtitle">Daily &amp; Weekly Breakdown</p>
+ <body class="h-full bg-gray-100 overflow-auto">
+  <div class="min-h-full flex flex-col items-center py-8"><!-- Print Button -->
+   <div class="no-print mb-6 flex gap-4"><button onclick="window.print()" class="px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center gap-2">
+     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+     </svg> Print Letterhead </button>
+    <p class="text-gray-600 text-sm self-center italic">Click to print or save as PDF</p>
+   </div><!-- A4 Letterhead Page -->
+   <div class="letterhead-page shadow-2xl relative"><!-- Left Floral Border -->
+    <div class="floral-border-left">
+     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full"><defs>
+       <lineargradient id="flowerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E8B4BC" />
+        <stop offset="50%" style="stop-color:#D4A5AC" />
+        <stop offset="100%" style="stop-color:#C99BA2" />
+       </lineargradient>
+       <lineargradient id="flowerGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#F5D7DC" />
+        <stop offset="100%" style="stop-color:#E8C4CA" />
+       </lineargradient>
+       <lineargradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#7BA05B" />
+        <stop offset="50%" style="stop-color:#5C8A3E" />
+        <stop offset="100%" style="stop-color:#4A7030" />
+       </lineargradient>
+       <lineargradient id="vineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#6B8E4E" />
+        <stop offset="100%" style="stop-color:#4A6B35" />
+       </lineargradient>
+      </defs> <!-- Main vine --> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGrad)" stroke-width="3" opacity="0.8" /> <!-- Decorative flowers and leaves repeating pattern --> <!-- Top cluster --> <g transform="translate(40, 60)"><!-- Rose -->
+       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1)" />
+       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
+       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" /> <!-- Leaves -->
+       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGrad)" />
+       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGrad)" />
+      </g> <!-- Small buds --> <g transform="translate(70, 130)">
+       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1)" />
+       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGrad)" />
+      </g> <!-- Second cluster --> <g transform="translate(30, 200)">
+       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2)" />
+       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
+       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGrad)" />
+       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGrad)" />
+      </g> <!-- Lily flowers --> <g transform="translate(65, 280)">
+       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
+       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1)" opacity="0.7" />
+       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
+       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGrad)" />
+      </g> <!-- Third cluster --> <g transform="translate(25, 370)">
+       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1)" />
+       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2)" />
+       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2)" />
+       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
+       <circle cx="0" cy="0" r="5" fill="#C77D87" />
+       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGrad)" />
+       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGrad)" />
+      </g> <!-- Small accent flowers --> <g transform="translate(75, 450)">
+       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
+       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
+       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGrad)" />
+      </g> <!-- Fourth cluster --> <g transform="translate(45, 530)">
+       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2)" />
+       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGrad)" />
+       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGrad)" />
+      </g> <!-- Buds --> <g transform="translate(20, 610)">
+       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1)" />
+       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGrad)" />
+       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGrad)" />
+      </g> <!-- Fifth cluster --> <g transform="translate(60, 700)">
+       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1)" />
+       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
+       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
+       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGrad)" />
+       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGrad)" />
+      </g> <!-- Bottom accent --> <g transform="translate(35, 790)">
+       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2)" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGrad)" />
+       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGrad)" />
+      </g> <!-- Scattered small leaves --> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGrad)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGrad)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGrad)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGrad)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGrad)" opacity="0.7" />
+     </svg>
+    </div><!-- Right Floral Border (mirrored) -->
+    <div class="floral-border-right">
+     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full" style="transform: scaleX(-1);"><defs>
+       <lineargradient id="flowerGrad1R" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E8B4BC" />
+        <stop offset="50%" style="stop-color:#D4A5AC" />
+        <stop offset="100%" style="stop-color:#C99BA2" />
+       </lineargradient>
+       <lineargradient id="flowerGrad2R" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#F5D7DC" />
+        <stop offset="100%" style="stop-color:#E8C4CA" />
+       </lineargradient>
+       <lineargradient id="leafGradR" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#7BA05B" />
+        <stop offset="50%" style="stop-color:#5C8A3E" />
+        <stop offset="100%" style="stop-color:#4A7030" />
+       </lineargradient>
+       <lineargradient id="vineGradR" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#6B8E4E" />
+        <stop offset="100%" style="stop-color:#4A6B35" />
+       </lineargradient>
+      </defs> <!-- Main vine --> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradR)" stroke-width="3" opacity="0.8" /> <!-- Top cluster --> <g transform="translate(40, 60)">
+       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1R)" />
+       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
+       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
+       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGradR)" />
+       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGradR)" />
+      </g> <g transform="translate(70, 130)">
+       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1R)" />
+       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGradR)" />
+      </g> <g transform="translate(30, 200)">
+       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2R)" />
+       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
+       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGradR)" />
+       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGradR)" />
+      </g> <g transform="translate(65, 280)">
+       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
+       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1R)" opacity="0.7" />
+       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
+       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGradR)" />
+      </g> <g transform="translate(25, 370)">
+       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1R)" />
+       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2R)" />
+       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2R)" />
+       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
+       <circle cx="0" cy="0" r="5" fill="#C77D87" />
+       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGradR)" />
+       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGradR)" />
+      </g> <g transform="translate(75, 450)">
+       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
+       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
+       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGradR)" />
+      </g> <g transform="translate(45, 530)">
+       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2R)" />
+       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGradR)" />
+       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGradR)" />
+      </g> <g transform="translate(20, 610)">
+       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1R)" />
+       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGradR)" />
+       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGradR)" />
+      </g> <g transform="translate(60, 700)">
+       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1R)" />
+       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
+       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
+       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGradR)" />
+       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGradR)" />
+      </g> <g transform="translate(35, 790)">
+       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2R)" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGradR)" />
+       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGradR)" />
+      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGradR)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGradR)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGradR)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGradR)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGradR)" opacity="0.7" />
+     </svg>
+    </div><!-- Content Area -->
+    <div class="content-area relative z-10"><!-- Header Section -->
+     <div class="text-center mb-8"><!-- Cross Symbol -->
+      <div class="mb-4">
+       <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16" viewbox="0 0 64 64"><defs>
+         <lineargradient id="crossGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#D4AF37" />
+          <stop offset="50%" style="stop-color:#C5A028" />
+          <stop offset="100%" style="stop-color:#B8962B" />
+         </lineargradient>
+        </defs> <path d="M28 4 L36 4 L36 24 L56 24 L56 32 L36 32 L36 60 L28 60 L28 32 L8 32 L8 24 L28 24 Z" fill="url(#crossGold)" stroke="#8B7355" stroke-width="1" /> <circle cx="32" cy="28" r="6" fill="none" stroke="#8B7355" stroke-width="1" opacity="0.5" />
+       </svg>
+      </div><!-- Church Name -->
+      <h1 id="church-name" class="font-cinzel text-3xl font-bold tracking-wider mb-2" style="color: #4A3728;">ALL NATIONS CHRISTIAN ASSEMBLY</h1><!-- Location -->
+      <p id="location" class="font-cormorant text-xl tracking-wide mb-3" style="color: #6B5344;">UMUOJIMA OGBU</p><!-- Decorative Divider -->
+      <div class="flex items-center justify-center gap-3 mb-3">
+       <div class="w-16 h-px bg-gradient-to-r from-transparent to-amber-700"></div>
+       <svg class="w-6 h-6" viewbox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z" />
+       </svg>
+       <div class="w-16 h-px bg-gradient-to-l from-transparent to-amber-700"></div>
+      </div><!-- Tagline -->
+      <p id="tagline" class="font-cormorant text-lg italic tracking-wide" style="color: #8B7355;">Throne of Holiness &amp; Righteousness</p><!-- Main Divider Line -->
+      <div class="divider-line mt-6 mx-auto" style="max-width: 80%;"></div>
+     </div><!-- Writing Lines Section -->
+     <div class="mt-12 space-y-1">
+      <div class="writing-lines"></div>
+      <div class="writing-lines"></div>
+      <div class="writing-lines"></div>
+      <div class="writing-lines"></div>
+     </div><!-- Footer -->
+     <div class="mt-8 text-center">
+      <div class="divider-line mx-auto mb-4" style="max-width: 60%;"></div>
+      <p class="font-cormorant text-sm italic" style="color: #8B7355;">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
      </div>
     </div>
-   </header><!-- Content -->
-   <div class="content-section"><!-- Week 1 -->
-    <div class="week-card">
-     <h3>WEEK 1</h3>
-     <p><strong>Orientation &amp; Digital Foundations</strong></p>
-     <ul class="track-list">
-      <li>Program onboarding, expectations, code of conduct, overview of global digital economy</li>
-      <li>Digital literacy, online tools overview, email &amp; cloud usage</li>
-      <li>Skill aptitude assessment &amp; track confirmation</li>
-      <li>Introduction to freelancing, remote work &amp; global platforms</li>
-      <li>Mindset, professionalism, communication &amp; accountability</li>
-     </ul>
-    </div><!-- Weeks 2-6 -->
-    <div class="week-card">
-     <h3>WEEKS 2–6</h3>
-     <p><strong>Core Skill Training</strong></p>
-     <p style="font-size: 11px; margin-bottom: 8px;">Choose one track • 20+ hours intensive</p>
-     <ul class="track-list">
-      <li>Content Writing &amp; Copywriting</li>
-      <li>Social Media Management</li>
-      <li>Graphic Design</li>
-      <li>Video Editing</li>
-      <li>Virtual Assistance</li>
-      <li>Web Design (No-code / WordPress)</li>
-      <li>Facebook &amp; Instagram Advertising</li>
-      <li>Cartoon Creation Mastery</li>
-      <li>AI Mastery</li>
-     </ul>
-    </div><!-- Weeks 7-12 -->
-    <div class="week-card">
-     <h3>WEEKS 7–12</h3>
-     <ul class="track-list">
-      <li><strong>Weeks 7–8:</strong> Professional portfolios, LinkedIn profiles, platform profiles, personal branding training, certificate issuance, pricing &amp; proposal writing</li>
-      <li style="margin-top: 8px;"><strong>Weeks 9–11:</strong> Platform onboarding (Upwork, Fiverr, LinkedIn), cold outreach systems, interview preparation, internship &amp; agency linkages</li>
-      <li style="margin-top: 8px;"><strong>Week 12:</strong> Income tracking &amp; scaling, ethics &amp; career planning, alumni community, government impact documentation, graduation &amp; certification</li>
-     </ul>
-    </div>
-   </div><!-- Footer -->
-   <footer class="footer-section">
-    <div class="footer-content">
-     <div>
-      <div class="footer-stamp">
-       DIGITAL SKILLS ACADEMY
-      </div>
-      <p class="footer-text">12-Week Intensive Program</p>
-     </div>
-     <div style="text-align: center;">
-      <p class="footer-text">Transform Your Future</p>
-      <p class="footer-text">Master Digital Skills</p>
-     </div>
-     <div style="text-align: right;">
-      <p class="footer-text">Global Workforce Ready</p>
-      <p class="footer-stamp">Join Now</p>
-     </div>
-    </div>
-   </footer>
+   </div><!-- Instructions -->
+   <div class="no-print mt-6 text-center text-gray-600 text-sm max-w-md">
+    <p class="mb-2"><strong>How to use:</strong></p>
+    <p>Click "Print Letterhead" and select "Save as PDF" to download, or print directly to your printer. Set paper size to A4 for best results.</p>
+   </div>
   </div>
   <script>
     const defaultConfig = {
-      main_title: "FULL 12-WEEK CURRICULUM",
-      subtitle: "Daily & Weekly Breakdown",
-      background_color: "#ffffff",
-      accent_color: "#e91e8c",
-      text_color: "#1a1a1a",
-      font_family: "Lato",
-      font_size: 16
+      church_name: "ALL NATIONS CHRISTIAN ASSEMBLY",
+      location: "UMUOJIMA OGBU",
+      tagline: "Throne of Holiness & Righteousness"
     };
     
     async function onConfigChange(config) {
-      const mainTitle = document.getElementById('main-title');
-      const subtitle = document.getElementById('subtitle');
-      
-      if (mainTitle) {
-        mainTitle.textContent = config.main_title || defaultConfig.main_title;
-      }
-      
-      if (subtitle) {
-        subtitle.textContent = config.subtitle || defaultConfig.subtitle;
-      }
+      document.getElementById('church-name').textContent = config.church_name || defaultConfig.church_name;
+      document.getElementById('location').textContent = config.location || defaultConfig.location;
+      document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
     }
     
     function mapToCapabilities(config) {
       return {
-        recolorables: [
-          {
-            get: () => config.accent_color || defaultConfig.accent_color,
-            set: (value) => { config.accent_color = value; window.elementSdk.setConfig({ accent_color: value }); }
-          }
-        ],
+        recolorables: [],
         borderables: [],
         fontEditable: undefined,
         fontSizeable: undefined
@@ -450,8 +320,9 @@
     
     function mapToEditPanelValues(config) {
       return new Map([
-        ["main_title", config.main_title || defaultConfig.main_title],
-        ["subtitle", config.subtitle || defaultConfig.subtitle]
+        ["church_name", config.church_name || defaultConfig.church_name],
+        ["location", config.location || defaultConfig.location],
+        ["tagline", config.tagline || defaultConfig.tagline]
       ]);
     }
     
@@ -464,5 +335,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bcd0badd4fcedf3',t:'MTc2ODIyNTAxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd55f75d6aca17a',t:'MTc2ODMxMjMzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
