@@ -32,15 +32,18 @@
     }
 
     .a4-page {
-      width: 210mm;
-      height: 297mm;
+      width: 100%;
+      max-width: 210mm;
+      min-height: 297mm;
       margin: 0 auto 20px;
       padding: 15mm;
       background: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       page-break-after: always;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
     }
 
     .page-number {
@@ -52,8 +55,8 @@
     }
 
     .a4-content {
-      height: calc(297mm - 30mm - 15mm);
-      overflow: hidden;
+      min-height: auto;
+      overflow: visible;
       display: flex;
       flex-direction: column;
     }
@@ -63,7 +66,7 @@
 
     h1 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 28px;
+      font-size: 36px;
       color: #0d0d0d;
       margin-bottom: 15px;
       line-height: 1.3;
@@ -71,7 +74,7 @@
 
     h2 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
+      font-size: 24px;
       color: #ff8c42;
       margin-top: 12px;
       margin-bottom: 10px;
@@ -82,28 +85,28 @@
 
     h3 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 14px;
+      font-size: 18px;
       color: #0d0d0d;
       margin-top: 10px;
       margin-bottom: 8px;
     }
 
     p {
-      font-size: 11px;
-      line-height: 1.5;
-      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 10px;
       color: #333;
     }
 
     ul, ol {
       margin-left: 15px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     li {
-      font-size: 11px;
-      line-height: 1.4;
-      margin-bottom: 4px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 6px;
       color: #333;
     }
 
@@ -159,7 +162,7 @@
     }
 
     .cover-header .document-type {
-      font-size: 10px;
+      font-size: 13px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #999;
@@ -167,7 +170,7 @@
     }
 
     .cover-header h1 {
-      font-size: 26px;
+      font-size: 32px;
       margin-bottom: 20px;
       color: #0d0d0d;
     }
@@ -191,20 +194,20 @@
     }
 
     .submission-info p {
-      font-size: 10px;
+      font-size: 13px;
       color: #999;
       margin-bottom: 5px;
     }
 
     .submission-info .org-name {
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       color: #ff8c42;
       margin-bottom: 5px;
     }
 
     .submission-info .org-desc {
-      font-size: 9px;
+      font-size: 12px;
       color: #666;
       font-style: italic;
     }
@@ -215,7 +218,7 @@
     }
 
     .recipient-info p {
-      font-size: 10px;
+      font-size: 13px;
       margin-bottom: 3px;
     }
 
@@ -225,9 +228,9 @@
       gap: 8px;
       border: 1px solid #ff8c42;
       border-radius: 20px;
-      padding: 8px 12px;
+      padding: 10px 14px;
       margin-top: 30px;
-      font-size: 9px;
+      font-size: 12px;
     }
 
     .alignment-badge svg {
@@ -240,17 +243,17 @@
     .info-box {
       background: #f9f9f9;
       border-left: 3px solid #ff8c42;
-      padding: 8px;
-      margin: 8px 0;
-      font-size: 10px;
-      line-height: 1.4;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .card {
       background: #f5f5f5;
       border: 1px solid #e0e0e0;
-      padding: 8px;
-      margin-bottom: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
       border-radius: 4px;
     }
 
@@ -258,14 +261,14 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 10px;
-      margin: 8px 0;
+      font-size: 13px;
+      margin: 10px 0;
     }
 
     table th {
       background: #f0f0f0;
       border-bottom: 2px solid #ff8c42;
-      padding: 6px;
+      padding: 8px;
       text-align: left;
       font-weight: bold;
       color: #0d0d0d;
@@ -273,7 +276,7 @@
 
     table td {
       border-bottom: 1px solid #ddd;
-      padding: 5px 6px;
+      padding: 7px 8px;
       color: #333;
     }
 
@@ -304,14 +307,14 @@
     .grid-item {
       background: #f9f9f9;
       border-left: 2px solid #ff8c42;
-      padding: 6px;
-      font-size: 10px;
+      padding: 8px;
+      font-size: 13px;
     }
 
     .objective-item {
       display: flex;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       page-break-inside: avoid;
     }
 
@@ -319,12 +322,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       background: linear-gradient(135deg, #ff8c42, #e67e2d);
       color: white;
       border-radius: 50%;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: bold;
       flex-shrink: 0;
     }
@@ -334,14 +337,14 @@
     }
 
     .objective-content h4 {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: bold;
       color: #0d0d0d;
       margin-bottom: 3px;
     }
 
     .objective-content p {
-      font-size: 10px;
+      font-size: 13px;
       margin: 0;
       color: #555;
     }
@@ -391,19 +394,19 @@
       </div>
       <div class="alignment-badge">
        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-       </svg><span>Aligned With: <strong>ARISe Agenda</strong> – Youth Empowerment</span>
+       </svg><span>Aligned With: <strong>ARISe Agenda</strong> – Youth Empowerment &amp; Digital Economy Development</span>
       </div>
      </div>
     </div>
     <div class="page-number">
      1
     </div>
-   </div><!-- PAGE 2: ALTERNATIVE TITLES & ABSTRACT -->
+   </div><!-- PAGE 2: ALTERNATIVE TITLES -->
    <div class="a4-page">
     <div class="a4-content">
      <div class="section">
       <div class="section-title"><span class="number-badge">✦</span>
-       <h2>Suggested Alternative Titles</h2>
+       <h2>SUGGESTED ALTERNATIVE TITLES (5 OPTIONS)</h2>
       </div>
       <ol>
        <li>From Local Talent to Global Earners: Empowering Akwa Ibom Youth Through Digital Entrepreneurship</li>
@@ -413,24 +416,44 @@
        <li>Digital Futures: Training Akwa Ibom Youth for High-Demand Global Skills</li>
       </ol>
      </div>
+    </div>
+    <div class="page-number">
+     2
+    </div>
+   </div><!-- PAGE 3: TITLE PAGE -->
+   <div class="a4-page">
+    <div class="a4-content">
      <div class="section">
       <div class="section-title"><span class="number-badge">I</span>
-       <h2>Abstract / Project Summary</h2>
+       <h2>TITLE</h2>
       </div>
-      <p>This proposal presents a strategic initiative by <strong>OnlineGigsServices</strong> to partner with the Akwa Ibom State Government under the <strong>ARISe Agenda</strong> to train youths in high-demand digital skills, digital entrepreneurship, personal branding, and online income systems.</p>
+      <h1 style="font-size: 24px; text-align: center; margin-top: 40px;">Digital Entrepreneurship: Empowering Akwa Ibom Youth with Employable High-Demand Digital Skills and Online Earnings</h1>
+     </div>
+    </div>
+    <div class="page-number">
+     3
+    </div>
+   </div><!-- PAGE 4: ABSTRACT / PROJECT SUMMARY -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">II</span>
+       <h2>ABSTRACT / PROJECT SUMMARY</h2>
+      </div>
+      <p>This proposal presents a strategic initiative by <strong>OnlineGigsServices</strong> to partner with the <strong>Akwa Ibom State Government</strong> under the <strong>ARISe Agenda</strong> to train youths in high-demand digital skills, digital entrepreneurship, personal branding, and online income systems.</p>
       <p>The program aims to equip participants with practical, employable digital skills that enable them to earn locally and globally, including in foreign currencies. Through structured training, mentorship, and job-readiness support, beneficiaries will transition from unemployment or underemployment into skilled digital professionals and entrepreneurs.</p>
       <p>The program will be implemented in scalable cohorts ranging from <strong>100 to 5,000 youths</strong>, using a hybrid model of physical and virtual training, practical projects, certification, and post-training support.</p>
      </div>
     </div>
     <div class="page-number">
-     2
+     4
     </div>
-   </div><!-- PAGE 3: PROBLEM STATEMENT -->
+   </div><!-- PAGE 5: PROBLEM STATEMENT -->
    <div class="a4-page">
     <div class="a4-content">
      <div class="section">
-      <div class="section-title"><span class="number-badge">II</span>
-       <h2>Problem Statement</h2>
+      <div class="section-title"><span class="number-badge">III</span>
+       <h2>PROBLEM STATEMENT</h2>
       </div>
       <p>Akwa Ibom State has a large population of young people who are energetic, creative, and willing to work, yet many face:</p>
       <ul class="bullet-list">
@@ -445,161 +468,86 @@
       </div>
      </div>
      <div class="section">
-      <div class="section-title"><span class="number-badge">III</span>
-       <h2>Context, Rationale &amp; Institutional Capacity</h2>
+      <div class="section-title"><span class="number-badge">IV</span>
+       <h2>CONTEXT, RATIONALE &amp; INSTITUTIONAL CAPACITY</h2>
       </div>
       <h3>Context</h3>
       <p>The global economy is rapidly shifting toward remote work, freelancing, digital services, and online businesses. Countries and regions that invest early in digital skills development benefit from job creation, innovation, and foreign exchange inflow.</p>
-      <p>Akwa Ibom State, through the ARISe Agenda, has shown strong commitment to youth empowerment, innovation, and economic development. This program directly supports those goals.</p>
-     </div>
-    </div>
-    <div class="page-number">
-     3
-    </div>
-   </div><!-- PAGE 4: RATIONALE & INSTITUTIONAL CAPACITY -->
-   <div class="a4-page">
-    <div class="a4-content">
-     <div class="section">
-      <h3>Rationale</h3>
-      <p>Training youths in digital entrepreneurship will:</p>
-      <div class="grid-2">
-       <div class="grid-item">
-        ✓ Reduce unemployment
-       </div>
-       <div class="grid-item">
-        ✓ Increase self-employment
-       </div>
-       <div class="grid-item">
-        ✓ Create access to foreign income
-       </div>
-       <div class="grid-item">
-        ✓ Improve digital inclusion
-       </div>
-      </div>
-     </div>
-     <div class="section">
-      <h3>Institutional Capacity / Profile</h3>
-      <p><strong>OnlineGigsServices</strong> is a registered digital training and online entrepreneurship company focused on empowering youths with globally relevant, income-generating digital skills.</p>
-      <p><strong>Core areas of expertise:</strong></p>
-      <div class="grid-2">
-       <div class="grid-item">
-        Digital Skills Training
-       </div>
-       <div class="grid-item">
-        Freelancing Systems
-       </div>
-       <div class="grid-item">
-        Digital Entrepreneurship
-       </div>
-       <div class="grid-item">
-        Personal Branding
-       </div>
-       <div class="grid-item">
-        Online Income
-       </div>
-       <div class="grid-item">
-        Client Acquisition
-       </div>
-      </div>
-      <p style="margin-top: 8px;"><em>The organization operates with a practical, beginner-friendly approach, combining training, mentorship, and job-readiness support.</em></p>
-     </div>
-     <div class="section">
-      <div class="section-title"><span class="number-badge">IV</span>
-       <h2>Goal</h2>
-      </div>
-      <div class="info-box">
-       To empower Akwa Ibom youths with employable, high-demand digital skills and entrepreneurial capacity that enable <strong>sustainable income generation</strong> and participation in the <strong>global digital economy</strong>.
-      </div>
-     </div>
-    </div>
-    <div class="page-number">
-     4
-    </div>
-   </div><!-- PAGE 5: OBJECTIVES (Part 1) -->
-   <div class="a4-page">
-    <div class="a4-content">
-     <div class="section">
-      <div class="section-title"><span class="number-badge">V</span>
-       <h2>Objectives</h2>
-      </div>
-      <div class="objective-item">
-       <div class="objective-number">
-        1
-       </div>
-       <div class="objective-content">
-        <h4>Train Youths in High-Demand Digital Skills</h4>
-        <p>Provide comprehensive training in globally relevant digital competencies including web design, digital marketing, content creation, social media management, freelancing platforms, and online business development.</p>
-       </div>
-      </div>
-      <div class="objective-item">
-       <div class="objective-number">
-        2
-       </div>
-       <div class="objective-content">
-        <h4>Build Digital Entrepreneurship Mindset</h4>
-        <p>Develop entrepreneurial thinking, business problem-solving skills, and confidence to start and scale digital businesses or freelance ventures with sustainable income models.</p>
-       </div>
-      </div>
-      <div class="objective-item">
-       <div class="objective-number">
-        3
-       </div>
-       <div class="objective-content">
-        <h4>Enable Personal Branding for Global Markets</h4>
-        <p>Equip participants with personal branding and portfolio development skills to position themselves attractively to global clients and employers on international platforms.</p>
-       </div>
-      </div>
-      <div class="objective-item">
-       <div class="objective-number">
-        4
-       </div>
-       <div class="objective-content">
-        <h4>Connect Youths to Global Income Opportunities</h4>
-        <p>Facilitate access to international freelancing platforms, remote work opportunities, and client networks, enabling beneficiaries to earn in foreign currencies.</p>
-       </div>
-      </div>
+      <p>Akwa Ibom State, through the ARISe Agenda, has shown strong commitment to youth empowerment, innovation, and economic development. This program directly supports those goals by positioning Akwa Ibom youths as competitive players in the global digital economy.</p>
      </div>
     </div>
     <div class="page-number">
      5
     </div>
-   </div><!-- PAGE 6: OBJECTIVES (Part 2) -->
+   </div><!-- PAGE 6: RATIONALE & INSTITUTIONAL CAPACITY -->
    <div class="a4-page">
     <div class="a4-content">
      <div class="section">
-      <div class="objective-item">
-       <div class="objective-number">
-        5
-       </div>
-       <div class="objective-content">
-        <h4>Provide Certification and Job-Readiness Support</h4>
-        <p>Award recognized certifications upon completion and provide ongoing mentorship, job placement assistance, and support for maintaining employment or scaling digital businesses.</p>
-       </div>
+      <h3>Rationale</h3>
+      <p>Training youths in digital entrepreneurship will:</p>
+      <ul class="bullet-list">
+       <li>Reduce unemployment</li>
+       <li>Increase self-employment and entrepreneurship</li>
+       <li>Create access to foreign income</li>
+       <li>Improve digital inclusion</li>
+       <li>Strengthen the state's economic resilience</li>
+      </ul>
+     </div>
+     <div class="section">
+      <h3>Institutional Capacity / Profile</h3>
+      <p><strong>OnlineGigsServices</strong> is a registered digital training and online entrepreneurship company focused on empowering youths with globally relevant, income-generating digital skills.</p>
+      <p><strong>Core areas of expertise include:</strong></p>
+      <ul class="bullet-list">
+       <li>Digital skills training</li>
+       <li>Freelancing and remote work systems</li>
+       <li>Digital entrepreneurship</li>
+       <li>Personal branding for global markets</li>
+       <li>Online income and client acquisition</li>
+      </ul>
+      <p style="margin-top: 8px;">The organization operates with a practical, beginner-friendly approach, combining training, mentorship, and job-readiness support.</p>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">V</span>
+       <h2>GOAL</h2>
       </div>
-      <div class="objective-item">
-       <div class="objective-number">
-        6
-       </div>
-       <div class="objective-content">
-        <h4>Create Sustainable Community &amp; Peer Support Network</h4>
-        <p>Build lasting alumni networks and peer support communities where graduates continue to collaborate, share opportunities, and support each other's growth in the digital economy.</p>
-       </div>
+      <div class="info-box">
+       To empower Akwa Ibom youths with employable, high-demand digital skills and entrepreneurial capacity that enable sustainable income generation and participation in the global digital economy.
       </div>
      </div>
      <div class="section">
       <div class="section-title"><span class="number-badge">VI</span>
-       <h2>Methodology</h2>
+       <h2>OBJECTIVES</h2>
+      </div>
+      <ul class="bullet-list">
+       <li>Train youths in high-demand digital skills.</li>
+       <li>Equip participants with digital entrepreneurship and business skills.</li>
+       <li>Teach personal branding for global visibility.</li>
+       <li>Enable participants to access online jobs, freelance work, and digital business income.</li>
+       <li>Increase foreign currency inflow into Akwa Ibom State.</li>
+       <li>Reduce youth unemployment and underemployment.</li>
+      </ul>
+     </div>
+    </div>
+    <div class="page-number">
+     6
+    </div>
+   </div><!-- PAGE 7: METHODOLOGY -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">VII</span>
+       <h2>METHODOLOGY</h2>
       </div>
       <p>The program will adopt a practical, outcome-driven methodology:</p>
       <ul class="bullet-list">
-       <li>Hybrid training (physical + virtual)</li>
+       <li>Hybrid training model (physical + virtual)</li>
        <li>Project-based learning</li>
        <li>Real-world assignments</li>
        <li>Mentorship and accountability</li>
-       <li>Portfolio development</li>
-       <li>Job readiness coaching</li>
+       <li>Portfolio and profile development</li>
+       <li>Job and income-readiness coaching</li>
       </ul>
-      <h3>Training Delivery Methods</h3>
+      <h3>Training will be delivered through:</h3>
       <ul class="bullet-list">
        <li>Workshops and classes</li>
        <li>Digital learning platforms</li>
@@ -609,67 +557,47 @@
      </div>
     </div>
     <div class="page-number">
-     6
+     7
     </div>
-   </div><!-- PAGE 7: WORK PLAN (Part 1) -->
+   </div><!-- PAGE 8: WORK PLAN (Part 1) -->
    <div class="a4-page">
     <div class="a4-content">
      <div class="section">
-      <div class="section-title"><span class="number-badge">VII</span>
-       <h2>Work Plan</h2>
+      <div class="section-title"><span class="number-badge">VIII</span>
+       <h2>WORK PLAN</h2>
       </div>
       <div class="card">
        <h3>Phase 1: Awareness &amp; Mobilization</h3>
        <ul class="bullet-list">
-        <li>Publicity and sensitization campaigns</li>
+        <li>Publicity and sensitization</li>
         <li>Registration of interested youths</li>
        </ul>
       </div>
       <div class="card">
        <h3>Phase 2: Selection &amp; Onboarding</h3>
        <ul class="bullet-list">
-        <li>Screening and onboarding of participants</li>
+        <li>Screening and onboarding</li>
         <li>Orientation and expectation setting</li>
        </ul>
       </div>
       <div class="card">
        <h3>Phase 3: Training Delivery</h3>
-       <p>Participants trained in:</p>
-       <div class="grid-2">
-        <div class="grid-item">
-         Content writing
-        </div>
-        <div class="grid-item">
-         Social media
-        </div>
-        <div class="grid-item">
-         Virtual assistance
-        </div>
-        <div class="grid-item">
-         Graphic design
-        </div>
-        <div class="grid-item">
-         Digital marketing
-        </div>
-        <div class="grid-item">
-         Freelancing
-        </div>
-       </div>
+       <p>Participants will be trained in:</p>
+       <ul class="bullet-list">
+        <li>Content writing and copywriting</li>
+        <li>Social media management</li>
+        <li>Virtual assistance</li>
+        <li>Graphic design (basic)</li>
+        <li>Digital marketing</li>
+        <li>Freelancing and client acquisition</li>
+        <li>Personal branding</li>
+       </ul>
       </div>
-     </div>
-    </div>
-    <div class="page-number">
-     7
-    </div>
-   </div><!-- PAGE 8: WORK PLAN (Part 2) -->
-   <div class="a4-page">
-    <div class="a4-content">
-     <div class="section">
       <div class="card">
        <h3>Phase 4: Certification &amp; Portfolio Development</h3>
        <ul class="bullet-list">
-        <li>Skill assessments</li>
-        <li>Certification and credentials</li>
+        <li>Skill assessment</li>
+        <li>Certification</li>
         <li>Portfolio and profile creation</li>
        </ul>
       </div>
@@ -681,29 +609,29 @@
         <li>Remote job search support</li>
        </ul>
       </div>
-      <div class="section">
-       <div class="section-title"><span class="number-badge">VIII</span>
-        <h2>Sustainability Plan</h2>
-       </div>
-       <ul class="bullet-list">
-        <li>Train-the-trainer model to develop local facilitators</li>
-        <li>Alumni mentorship network</li>
-        <li>Continuous learning platform</li>
-        <li>Partnerships with private sector and digital companies</li>
-        <li>Expansion to schools and tertiary institutions</li>
-       </ul>
-      </div>
      </div>
     </div>
     <div class="page-number">
      8
     </div>
-   </div><!-- PAGE 9: RISK ANALYSIS -->
+   </div><!-- PAGE 9: SUSTAINABILITY & RISK ANALYSIS -->
    <div class="a4-page">
     <div class="a4-content">
      <div class="section">
       <div class="section-title"><span class="number-badge">IX</span>
-       <h2>Risk Analysis &amp; Mitigation</h2>
+       <h2>SUSTAINABILITY PLAN</h2>
+      </div>
+      <ul class="bullet-list">
+       <li>Train-the-trainer model to develop local facilitators</li>
+       <li>Alumni mentorship network</li>
+       <li>Continuous learning platform</li>
+       <li>Partnerships with private sector and digital companies</li>
+       <li>Expansion to schools and tertiary institutions</li>
+      </ul>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">X</span>
+       <h2>RISK ANALYSIS</h2>
       </div>
       <table>
        <thead>
@@ -715,106 +643,98 @@
        <tbody>
         <tr>
          <td>Low attendance</td>
-         <td>Strong mobilization campaigns and progress monitoring</td>
+         <td>Strong mobilization and monitoring</td>
         </tr>
         <tr>
          <td>Poor internet access</td>
-         <td>Hybrid training model with offline support options</td>
+         <td>Hybrid model and offline support</td>
         </tr>
         <tr>
-         <td>High dropout rate</td>
-         <td>Mentorship and accountability systems in place</td>
+         <td>Dropout rate</td>
+         <td>Mentorship and accountability system</td>
         </tr>
         <tr>
          <td>Low job placement</td>
-         <td>Extended support and industry partnerships</td>
+         <td>Extended support and partnerships</td>
         </tr>
         <tr>
          <td>Funding delays</td>
-         <td>Phased implementation to manage cash flow</td>
+         <td>Phased implementation</td>
         </tr>
        </tbody>
       </table>
-     </div>
-     <div class="section">
-      <div class="section-title"><span class="number-badge">X</span>
-       <h2>Monitoring &amp; Evaluation</h2>
-      </div>
-      <h3>Tracking Mechanisms</h3>
-      <ul class="bullet-list">
-       <li>Attendance tracking</li>
-       <li>Skill assessments</li>
-       <li>Completion records</li>
-       <li>Income tracking</li>
-      </ul>
      </div>
     </div>
     <div class="page-number">
      9
     </div>
-   </div><!-- PAGE 10: M&E KPIs -->
+   </div><!-- PAGE 10: MONITORING & EVALUATION -->
    <div class="a4-page">
     <div class="a4-content">
      <div class="section">
-      <h3>Key Performance Indicators (KPIs)</h3>
-      <div class="grid-2">
-       <div class="card"><strong>Number Trained:</strong><br>
-        100-5,000+
-       </div>
-       <div class="card"><strong>Number Certified:</strong><br>
-        80%+ Success
-       </div>
-       <div class="card"><strong>Number Earning:</strong><br>
-        60%+ Employment
-       </div>
-       <div class="card"><strong>Monthly Reports:</strong><br>
-        Quarterly Updates
-       </div>
+      <div class="section-title"><span class="number-badge">XI</span>
+       <h2>MONITORING &amp; EVALUATION (M&amp;E)</h2>
       </div>
+      <h3>Tracking Mechanisms:</h3>
+      <ul class="bullet-list">
+       <li>Attendance tracking</li>
+       <li>Skill assessments</li>
+       <li>Completion and certification records</li>
+       <li>Job placement and income tracking</li>
+       <li>Monthly and quarterly reports to the Ministries</li>
+      </ul>
+      <h3 style="margin-top: 10px;">Key Indicators:</h3>
+      <ul class="bullet-list">
+       <li>Number trained</li>
+       <li>Number certified</li>
+       <li>Number earning income</li>
+       <li>Amount of income generated</li>
+      </ul>
      </div>
      <div class="section">
-      <div class="section-title"><span class="number-badge">XI</span>
-       <h2>Budget Breakdown</h2>
+      <div class="section-title"><span class="number-badge">XII</span>
+       <h2>BUDGET</h2>
       </div>
+      <h3>Cost Structure</h3>
       <table>
        <thead>
         <tr>
-         <th>Participant Count</th>
-         <th>Cost Per Person</th>
-         <th>Total Budget</th>
+         <th>Number of Participants</th>
+         <th>Cost Per Person (₦)</th>
+         <th>Total Cost (₦)</th>
         </tr>
        </thead>
        <tbody>
         <tr>
-         <td>100</td>
+         <td>100 Participants</td>
          <td>₦250,000</td>
          <td><strong>₦25,000,000</strong></td>
         </tr>
         <tr>
-         <td>500</td>
+         <td>500 Participants</td>
          <td>₦200,000</td>
          <td><strong>₦100,000,000</strong></td>
         </tr>
         <tr>
-         <td>1,000</td>
+         <td>1,000 Participants</td>
          <td>₦170,000</td>
          <td><strong>₦170,000,000</strong></td>
         </tr>
         <tr>
-         <td>5,000</td>
+         <td>5,000 Participants</td>
          <td>₦150,000</td>
          <td><strong>₦750,000,000</strong></td>
         </tr>
        </tbody>
       </table>
-      <h3 style="margin-top: 8px;">Budget Allocation Includes:</h3>
+      <h3 style="margin-top: 8px;">Budget Covers:</h3>
       <ul class="bullet-list">
-       <li>Training materials and resources</li>
-       <li>Facilitators and mentorship staff</li>
+       <li>Training materials</li>
+       <li>Facilitators and mentors</li>
        <li>Training facilities and logistics</li>
-       <li>Digital platforms and online tools</li>
-       <li>Certification services</li>
-       <li>Monitoring and evaluation</li>
+       <li>Digital platforms and tools</li>
+       <li>Certification and assessment</li>
+       <li>Monitoring and reporting</li>
        <li>Administration and coordination</li>
       </ul>
      </div>
@@ -822,29 +742,28 @@
     <div class="page-number">
      10
     </div>
-   </div><!-- PAGE 11: REFERENCES -->
+   </div><!-- PAGE 11: REFERENCES & CONCLUSION -->
    <div class="a4-page">
     <div class="a4-content">
      <div class="section">
-      <div class="section-title"><span class="number-badge">XII</span>
-       <h2>References &amp; Alignment</h2>
+      <div class="section-title"><span class="number-badge">XIII</span>
+       <h2>REFERENCES</h2>
       </div>
       <ul class="bullet-list">
        <li>National Digital Economy Policy and Strategy (Nigeria)</li>
        <li>ARISe Agenda – Akwa Ibom State Development Framework</li>
-       <li>Global Digital Skills and Remote Work Trends (2023-2024)</li>
-       <li>Youth Employment and Digital Inclusion Research Reports</li>
+       <li>Global Digital Skills and Remote Work Trends</li>
+       <li>Youth Employment and Digital Inclusion Reports</li>
       </ul>
      </div>
      <div class="section">
-      <div class="section-title"><span class="number-badge">XIII</span>
-       <h2>Conclusion</h2>
+      <div class="section-title"><span class="number-badge">XIV</span>
+       <h2>CONCLUSION</h2>
       </div>
-      <p>This proposal presents a powerful and transformative opportunity to empower Akwa Ibom youths with the skills, confidence, and connections they need to compete in the global digital economy.</p>
+      <p>This proposal presents a powerful opportunity to transform Akwa Ibom youths into skilled digital professionals and entrepreneurs who can compete globally, earn sustainably, and contribute meaningfully to the state's economy.</p>
       <div class="info-box">
-       By partnering with OnlineGigsServices under the ARISe Agenda, Akwa Ibom State will not only reduce unemployment and underemployment but also position itself as a leading hub for digital talent and online entrepreneurship in Nigeria and beyond.
+       Through this partnership, Akwa Ibom State will not only reduce unemployment but also position itself as a leading hub for digital talent and online entrepreneurship in Nigeria and beyond.
       </div>
-      <p>The investment in youth digital skills is an investment in the future prosperity, innovation, and economic resilience of Akwa Ibom State.</p>
      </div>
     </div>
     <div class="page-number">
@@ -894,5 +813,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd678096409ccc1',t:'MTc2ODMyMzgyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd69d3e6258243d',t:'MTc2ODMyNTM1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
