@@ -3,558 +3,870 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hospital Application Letter - Pages 1 &amp; 2</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Digital Entrepreneurship Proposal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Source+Sans+Pro:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
   <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
-    
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      color: #333;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    .document-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 20px;
+      padding: 15mm;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 10mm;
+      right: 15mm;
+      font-size: 10px;
+      color: #999;
+    }
+
+    .a4-content {
+      height: calc(297mm - 30mm - 15mm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Typography */
+    .font-playfair { font-family: 'Playfair Display', Georgia, serif; }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      color: #0d0d0d;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      color: #ff8c42;
+      margin-top: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px;
+      color: #0d0d0d;
+      margin-top: 10px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 11px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    ul, ol {
+      margin-left: 15px;
+      margin-bottom: 8px;
+    }
+
+    li {
+      font-size: 11px;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    .section {
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .number-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #ff8c42, #e67e2d);
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .decorative-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #ff8c42, transparent);
+      margin: 10px 0;
+    }
+
+    /* Cover Page */
+    .cover-page .a4-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cover-header {
+      margin-top: 40px;
+    }
+
+    .cover-header svg {
+      width: 40px;
+      height: 40px;
+      color: #ff8c42;
+      margin-bottom: 20px;
+    }
+
+    .cover-header .document-type {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 15px;
+    }
+
+    .cover-header h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #0d0d0d;
+    }
+
+    .decorative-divider {
+      width: 60px;
+      height: 2px;
+      background: #ff8c42;
+      margin: 20px auto;
+    }
+
+    .cover-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .submission-info {
+      margin-bottom: 30px;
+    }
+
+    .submission-info p {
+      font-size: 10px;
+      color: #999;
+      margin-bottom: 5px;
+    }
+
+    .submission-info .org-name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ff8c42;
+      margin-bottom: 5px;
+    }
+
+    .submission-info .org-desc {
+      font-size: 9px;
+      color: #666;
+      font-style: italic;
+    }
+
+    .recipient-info {
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+
+    .recipient-info p {
+      font-size: 10px;
+      margin-bottom: 3px;
+    }
+
+    .alignment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #ff8c42;
+      border-radius: 20px;
+      padding: 8px 12px;
+      margin-top: 30px;
+      font-size: 9px;
+    }
+
+    .alignment-badge svg {
+      width: 14px;
+      height: 14px;
+      color: #ff8c42;
+    }
+
+    /* Cards and boxes */
+    .info-box {
+      background: #f9f9f9;
+      border-left: 3px solid #ff8c42;
+      padding: 8px;
+      margin: 8px 0;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .card {
+      background: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      margin: 8px 0;
+    }
+
+    table th {
+      background: #f0f0f0;
+      border-bottom: 2px solid #ff8c42;
+      padding: 6px;
+      text-align: left;
+      font-weight: bold;
+      color: #0d0d0d;
+    }
+
+    table td {
+      border-bottom: 1px solid #ddd;
+      padding: 5px 6px;
+      color: #333;
+    }
+
+    table tr:hover {
+      background: #fafafa;
+    }
+
+    /* Lists */
+    .bullet-list {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .bullet-list li::before {
+      content: "◆ ";
+      color: #ff8c42;
+      margin-right: 8px;
+      font-size: 8px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .grid-item {
+      background: #f9f9f9;
+      border-left: 2px solid #ff8c42;
+      padding: 6px;
+      font-size: 10px;
+    }
+
+    .objective-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+    }
+
+    .objective-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #ff8c42, #e67e2d);
+      color: white;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .objective-content {
+      flex: 1;
+    }
+
+    .objective-content h4 {
+      font-size: 11px;
+      font-weight: bold;
+      color: #0d0d0d;
+      margin-bottom: 3px;
+    }
+
+    .objective-content p {
+      font-size: 10px;
+      margin: 0;
+      color: #555;
+    }
+
+    /* Print styles */
     @media print {
-      @page {
-        size: A4;
-        margin: 0;
-      }
       body {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
+        background: white;
+        padding: 0;
       }
-      .no-print {
-        display: none !important;
-      }
-      .letterhead-page {
-        box-shadow: none !important;
-        margin: 0 !important;
+      .a4-page {
+        margin: 0;
+        box-shadow: none;
         page-break-after: always;
       }
     }
-    
-    .font-cinzel {
-      font-family: 'Cinzel', serif;
-    }
-    
-    .font-cormorant {
-      font-family: 'Cormorant Garamond', serif;
-    }
-    
-    .letterhead-page {
-      width: 210mm;
-      height: 297mm;
-      background: #fffef9;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-    
-    .floral-border-left {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 45mm;
-      pointer-events: none;
-    }
-    
-    .floral-border-right {
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 45mm;
-      pointer-events: none;
-    }
-    
-    .content-area {
-      margin-left: 35mm;
-      margin-right: 35mm;
-      padding-top: 18mm;
-      padding-bottom: 20mm;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-    }
-    
-    .divider-line {
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #8B4513, #D4AF37, #8B4513, transparent);
-    }
-    
-    .letter-body {
-      flex-grow: 1;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-    
-    .letter-body p {
-      margin-bottom: 10px;
-      text-align: justify;
-    }
 
-    .page-hidden {
-      display: none !important;
+    @page {
+      size: A4;
+      margin: 0;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
  </head>
- <body class="h-full bg-gray-100 overflow-auto">
-  <div class="min-h-full flex flex-col items-center py-8"><!-- Print/Navigation Controls -->
-   <div class="no-print mb-6 flex gap-4 items-center"><button onclick="window.print()" class="px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center gap-2">
-     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-     </svg> Print All Pages </button>
-    <div class="flex gap-2 items-center"><button id="prev-btn" onclick="showPage(1)" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded disabled:opacity-50">← Page 1</button> <span id="page-indicator" class="text-gray-600 font-semibold">Page 1 of 2</span> <button id="next-btn" onclick="showPage(2)" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded">Page 2 →</button>
-    </div>
-   </div><!-- PAGE 1 -->
-   <div id="page1" class="letterhead-page shadow-2xl relative"><!-- Left Floral Border -->
-    <div class="floral-border-left">
-     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full"><defs>
-       <lineargradient id="flowerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#E8B4BC" />
-        <stop offset="50%" style="stop-color:#D4A5AC" />
-        <stop offset="100%" style="stop-color:#C99BA2" />
-       </lineargradient>
-       <lineargradient id="flowerGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#F5D7DC" />
-        <stop offset="100%" style="stop-color:#E8C4CA" />
-       </lineargradient>
-       <lineargradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#7BA05B" />
-        <stop offset="50%" style="stop-color:#5C8A3E" />
-        <stop offset="100%" style="stop-color:#4A7030" />
-       </lineargradient>
-       <lineargradient id="vineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#6B8E4E" />
-        <stop offset="100%" style="stop-color:#4A6B35" />
-       </lineargradient>
-      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGrad)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
-       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1)" />
-       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
-       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGrad)" />
-       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGrad)" />
-      </g> <g transform="translate(70, 130)">
-       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1)" />
-       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGrad)" />
-      </g> <g transform="translate(30, 200)">
-       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2)" />
-       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
-       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGrad)" />
-       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGrad)" />
-      </g> <g transform="translate(65, 280)">
-       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
-       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1)" opacity="0.7" />
-       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
-       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGrad)" />
-      </g> <g transform="translate(25, 370)">
-       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1)" />
-       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2)" />
-       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2)" />
-       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
-       <circle cx="0" cy="0" r="5" fill="#C77D87" />
-       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGrad)" />
-       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGrad)" />
-      </g> <g transform="translate(75, 450)">
-       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
-       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
-       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGrad)" />
-      </g> <g transform="translate(45, 530)">
-       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2)" />
-       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGrad)" />
-       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGrad)" />
-      </g> <g transform="translate(20, 610)">
-       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1)" />
-       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGrad)" />
-       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGrad)" />
-      </g> <g transform="translate(60, 700)">
-       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1)" />
-       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
-       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGrad)" />
-       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGrad)" />
-      </g> <g transform="translate(35, 790)">
-       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2)" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGrad)" />
-       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGrad)" />
-      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGrad)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGrad)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGrad)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGrad)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGrad)" opacity="0.7" />
-     </svg>
-    </div><!-- Right Floral Border -->
-    <div class="floral-border-right">
-     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full" style="transform: scaleX(-1);"><defs>
-       <lineargradient id="flowerGrad1R" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#E8B4BC" />
-        <stop offset="50%" style="stop-color:#D4A5AC" />
-        <stop offset="100%" style="stop-color:#C99BA2" />
-       </lineargradient>
-       <lineargradient id="flowerGrad2R" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#F5D7DC" />
-        <stop offset="100%" style="stop-color:#E8C4CA" />
-       </lineargradient>
-       <lineargradient id="leafGradR" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#7BA05B" />
-        <stop offset="50%" style="stop-color:#5C8A3E" />
-        <stop offset="100%" style="stop-color:#4A7030" />
-       </lineargradient>
-       <lineargradient id="vineGradR" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#6B8E4E" />
-        <stop offset="100%" style="stop-color:#4A6B35" />
-       </lineargradient>
-      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradR)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
-       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1R)" />
-       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
-       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGradR)" />
-       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGradR)" />
-      </g> <g transform="translate(70, 130)">
-       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1R)" />
-       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGradR)" />
-      </g> <g transform="translate(30, 200)">
-       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2R)" />
-       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
-       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGradR)" />
-       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGradR)" />
-      </g> <g transform="translate(65, 280)">
-       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
-       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1R)" opacity="0.7" />
-       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
-       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGradR)" />
-      </g> <g transform="translate(25, 370)">
-       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1R)" />
-       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2R)" />
-       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2R)" />
-       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
-       <circle cx="0" cy="0" r="5" fill="#C77D87" />
-       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGradR)" />
-       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGradR)" />
-      </g> <g transform="translate(75, 450)">
-       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
-       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
-       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGradR)" />
-      </g> <g transform="translate(45, 530)">
-       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2R)" />
-       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGradR)" />
-       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGradR)" />
-      </g> <g transform="translate(20, 610)">
-       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1R)" />
-       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGradR)" />
-       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGradR)" />
-      </g> <g transform="translate(60, 700)">
-       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1R)" />
-       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
-       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGradR)" />
-       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGradR)" />
-      </g> <g transform="translate(35, 790)">
-       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2R)" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGradR)" />
-       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGradR)" />
-      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGradR)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGradR)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGradR)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGradR)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGradR)" opacity="0.7" />
-     </svg>
-    </div><!-- Content Area -->
-    <div class="content-area relative z-10"><!-- Header Section -->
-     <div class="mb-4 pb-4 border-b-2 border-amber-200">
-      <div class="mb-2">
-       <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" viewbox="0 0 64 64"><defs>
-         <lineargradient id="crossGold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#D4AF37" />
-          <stop offset="50%" style="stop-color:#C5A028" />
-          <stop offset="100%" style="stop-color:#B8962B" />
-         </lineargradient>
-        </defs> <path d="M28 4 L36 4 L36 24 L56 24 L56 32 L36 32 L36 60 L28 60 L28 32 L8 32 L8 24 L28 24 Z" fill="url(#crossGold)" stroke="#8B7355" stroke-width="1" />
-       </svg>
+ <body>
+  <div class="document-wrapper"><!-- PAGE 1: COVER -->
+   <div class="a4-page cover-page">
+    <div class="a4-content">
+     <div class="cover-header">
+      <svg viewbox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+      </svg>
+      <p class="document-type">Official Proposal Document</p>
+      <h1 id="main-title">Digital Entrepreneurship: Empowering Akwa Ibom Youth with Employable High-Demand Digital Skills and Online Earnings</h1>
+      <div class="decorative-divider"></div>
+     </div>
+     <div class="cover-body">
+      <div class="submission-info">
+       <p>Submitted by:</p>
+       <p class="org-name" id="submitted-by">OnlineGigsServices</p>
+       <p class="org-desc">A Registered Digital Skills &amp; Online Entrepreneurship Training Company</p>
       </div>
-      <h1 id="church-name" class="font-cinzel text-2xl font-bold tracking-wider text-center" style="color: #4A3728;">ALL NATIONS CHRISTIAN ASSEMBLY</h1>
-      <p id="location" class="font-cormorant text-center text-sm tracking-wide" style="color: #6B5344;">UMUOJIMA OGBU</p>
-      <p id="tagline" class="font-cormorant text-center text-xs italic" style="color: #8B7355;">Throne of Holiness &amp; Righteousness</p>
-     </div><!-- Letter Body -->
-     <div class="letter-body font-cormorant" style="color: #3D2817;">
-      <p><strong>Dear Sir/Madam,</strong></p>
-      <p style="text-align: center; font-weight: 600; margin-top: 8px; margin-bottom: 8px;">APPLICATION FOR HOSPITAL VISITATION</p>
-      <p>We respectfully request permission for our team to visit and pray for patients at your esteemed hospital.</p>
-      <p>We assure you that their visit will be brief, respectful and conducted in a manner that does not disrupt hospital operations or compromise patient care.</p>
-      <p>They would be visiting once a week, if approved.</p>
-      <p>We will ensure that our team complies with all hospital guidelines and regulations.</p>
-      <p>Thanks in advance for considering our request.</p>
-      <p style="margin-top: 12px;">Sincerely,</p>
-     </div><!-- Signature Section -->
-     <div class="mt-auto">
-      <div class="space-y-1 font-cormorant" style="color: #3D2817;">
-       <p style="margin-top: 30px;"><strong id="pastor-name">PASTOR ALEX EMMANUEL</strong></p>
-       <p id="title" style="font-weight: 600;">GENERAL OVERSEER</p>
-       <p id="phone1">08035955780</p>
-       <p id="phone2">08067220509</p>
+      <div class="recipient-info">
+       <p id="recipient-title">The Honourable Commissioner</p>
+       <p id="ministry-name">Ministry of Youth Development, Akwa Ibom State</p>
+      </div>
+      <div class="alignment-badge">
+       <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+       </svg><span>Aligned With: <strong>ARISe Agenda</strong> – Youth Empowerment</span>
       </div>
      </div>
     </div>
-   </div><!-- PAGE 2 (Continuation) -->
-   <div id="page2" class="letterhead-page shadow-2xl relative page-hidden"><!-- Left Floral Border -->
-    <div class="floral-border-left">
-     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full"><defs>
-       <lineargradient id="flowerGrad1P2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#E8B4BC" />
-        <stop offset="50%" style="stop-color:#D4A5AC" />
-        <stop offset="100%" style="stop-color:#C99BA2" />
-       </lineargradient>
-       <lineargradient id="flowerGrad2P2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#F5D7DC" />
-        <stop offset="100%" style="stop-color:#E8C4CA" />
-       </lineargradient>
-       <lineargradient id="leafGradP2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#7BA05B" />
-        <stop offset="50%" style="stop-color:#5C8A3E" />
-        <stop offset="100%" style="stop-color:#4A7030" />
-       </lineargradient>
-       <lineargradient id="vineGradP2" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#6B8E4E" />
-        <stop offset="100%" style="stop-color:#4A6B35" />
-       </lineargradient>
-      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradP2)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
-       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1P2)" />
-       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGradP2)" />
-       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(70, 130)">
-       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1P2)" />
-       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(30, 200)">
-       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
-       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGradP2)" />
-       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(65, 280)">
-       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
-       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1P2)" opacity="0.7" />
-       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
-       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(25, 370)">
-       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1P2)" />
-       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
-       <circle cx="0" cy="0" r="5" fill="#C77D87" />
-       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGradP2)" />
-       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(75, 450)">
-       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
-       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
-       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(45, 530)">
-       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGradP2)" />
-       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(20, 610)">
-       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1P2)" />
-       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGradP2)" />
-       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(60, 700)">
-       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1P2)" />
-       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGradP2)" />
-       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGradP2)" />
-      </g> <g transform="translate(35, 790)">
-       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2P2)" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGradP2)" />
-       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGradP2)" />
-      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGradP2)" opacity="0.7" />
-     </svg>
-    </div><!-- Right Floral Border -->
-    <div class="floral-border-right">
-     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full" style="transform: scaleX(-1);"><defs>
-       <lineargradient id="flowerGrad1RP2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#E8B4BC" />
-        <stop offset="50%" style="stop-color:#D4A5AC" />
-        <stop offset="100%" style="stop-color:#C99BA2" />
-       </lineargradient>
-       <lineargradient id="flowerGrad2RP2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#F5D7DC" />
-        <stop offset="100%" style="stop-color:#E8C4CA" />
-       </lineargradient>
-       <lineargradient id="leafGradRP2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#7BA05B" />
-        <stop offset="50%" style="stop-color:#5C8A3E" />
-        <stop offset="100%" style="stop-color:#4A7030" />
-       </lineargradient>
-       <lineargradient id="vineGradRP2" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#6B8E4E" />
-        <stop offset="100%" style="stop-color:#4A6B35" />
-       </lineargradient>
-      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradRP2)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
-       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1RP2)" />
-       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGradRP2)" />
-       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(70, 130)">
-       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1RP2)" />
-       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(30, 200)">
-       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
-       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGradRP2)" />
-       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(65, 280)">
-       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
-       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1RP2)" opacity="0.7" />
-       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
-       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(25, 370)">
-       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1RP2)" />
-       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
-       <circle cx="0" cy="0" r="5" fill="#C77D87" />
-       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGradRP2)" />
-       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(75, 450)">
-       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
-       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
-       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(45, 530)">
-       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGradRP2)" />
-       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(20, 610)">
-       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1RP2)" />
-       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGradRP2)" />
-       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(60, 700)">
-       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1RP2)" />
-       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
-       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" />
-       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGradRP2)" />
-       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGradRP2)" />
-      </g> <g transform="translate(35, 790)">
-       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2RP2)" />
-       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
-       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGradRP2)" />
-       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGradRP2)" />
-      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGradRP2)" opacity="0.7" />
-     </svg>
-    </div><!-- Content Area - Page 2 -->
-    <div class="content-area relative z-10"><!-- Header Section -->
-     <div class="mb-4 pb-4 border-b-2 border-amber-200">
-      <div class="mb-2">
-       <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" viewbox="0 0 64 64"><defs>
-         <lineargradient id="crossGold2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#D4AF37" />
-          <stop offset="50%" style="stop-color:#C5A028" />
-          <stop offset="100%" style="stop-color:#B8962B" />
-         </lineargradient>
-        </defs> <path d="M28 4 L36 4 L36 24 L56 24 L56 32 L36 32 L36 60 L28 60 L28 32 L8 32 L8 24 L28 24 Z" fill="url(#crossGold2)" stroke="#8B7355" stroke-width="1" />
-       </svg>
+    <div class="page-number">
+     1
+    </div>
+   </div><!-- PAGE 2: ALTERNATIVE TITLES & ABSTRACT -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">✦</span>
+       <h2>Suggested Alternative Titles</h2>
       </div>
-      <h1 id="church-name-2" class="font-cinzel text-2xl font-bold tracking-wider text-center" style="color: #4A3728;">ALL NATIONS CHRISTIAN ASSEMBLY</h1>
-      <p id="location-2" class="font-cormorant text-center text-sm tracking-wide" style="color: #6B5344;">UMUOJIMA OGBU</p>
-      <p id="tagline-2" class="font-cormorant text-center text-xs italic" style="color: #8B7355;">Throne of Holiness &amp; Righteousness</p>
-     </div><!-- Letter Body Page 2 -->
-     <div class="letter-body font-cormorant" style="color: #3D2817;">
-      <p><strong>Dear Sir/Madam,</strong></p>
-      <p style="text-align: center; font-weight: 600; margin-top: 8px; margin-bottom: 8px;">APPLICATION FOR HOSPITAL VISITATION</p>
-      <p>We respectfully request permission for our team to visit and pray for patients at your esteemed hospital.</p>
-      <p>We assure you that their visit will be brief, respectful and conducted in a manner that does not disrupt hospital operations or compromise patient care.</p>
-      <p>They would be visiting once a week, if approved.</p>
-      <p>We will ensure that our team complies with all hospital guidelines and regulations.</p>
-      <p>Thanks in advance for considering our request.</p>
-      <p style="margin-top: 12px;">Sincerely,</p>
-     </div><!-- Signature Section -->
-     <div class="mt-auto">
-      <div class="space-y-1 font-cormorant" style="color: #3D2817;">
-       <p style="margin-top: 30px;"><strong id="pastor-name-2">PASTOR ALEX EMMANUEL</strong></p>
-       <p id="title-2" style="font-weight: 600;">GENERAL OVERSEER</p>
-       <p id="phone1-2">08035955780</p>
-       <p id="phone2-2">08067220509</p>
+      <ol>
+       <li>From Local Talent to Global Earners: Empowering Akwa Ibom Youth Through Digital Entrepreneurship</li>
+       <li>Building a Digitally Skilled Generation: Akwa Ibom Youth for the Global Economy</li>
+       <li>Youth to Wealth: Digital Skills and Online Income Pathways for Akwa Ibom</li>
+       <li>Creating Global Earners: A Digital Skills Revolution for Akwa Ibom Youth</li>
+       <li>Digital Futures: Training Akwa Ibom Youth for High-Demand Global Skills</li>
+      </ol>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">I</span>
+       <h2>Abstract / Project Summary</h2>
+      </div>
+      <p>This proposal presents a strategic initiative by <strong>OnlineGigsServices</strong> to partner with the Akwa Ibom State Government under the <strong>ARISe Agenda</strong> to train youths in high-demand digital skills, digital entrepreneurship, personal branding, and online income systems.</p>
+      <p>The program aims to equip participants with practical, employable digital skills that enable them to earn locally and globally, including in foreign currencies. Through structured training, mentorship, and job-readiness support, beneficiaries will transition from unemployment or underemployment into skilled digital professionals and entrepreneurs.</p>
+      <p>The program will be implemented in scalable cohorts ranging from <strong>100 to 5,000 youths</strong>, using a hybrid model of physical and virtual training, practical projects, certification, and post-training support.</p>
+     </div>
+    </div>
+    <div class="page-number">
+     2
+    </div>
+   </div><!-- PAGE 3: PROBLEM STATEMENT -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">II</span>
+       <h2>Problem Statement</h2>
+      </div>
+      <p>Akwa Ibom State has a large population of young people who are energetic, creative, and willing to work, yet many face:</p>
+      <ul class="bullet-list">
+       <li>Limited access to quality employment</li>
+       <li>Skills mismatch with modern job markets</li>
+       <li>Dependence on shrinking local job opportunities</li>
+       <li>Limited exposure to global digital work systems</li>
+       <li>Rising unemployment and underemployment</li>
+      </ul>
+      <div class="info-box">
+       Traditional education alone is no longer sufficient to prepare youths for today's digital economy. There is an urgent need to equip young people with practical, income-generating digital skills that connect them to global opportunities.
+      </div>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">III</span>
+       <h2>Context, Rationale &amp; Institutional Capacity</h2>
+      </div>
+      <h3>Context</h3>
+      <p>The global economy is rapidly shifting toward remote work, freelancing, digital services, and online businesses. Countries and regions that invest early in digital skills development benefit from job creation, innovation, and foreign exchange inflow.</p>
+      <p>Akwa Ibom State, through the ARISe Agenda, has shown strong commitment to youth empowerment, innovation, and economic development. This program directly supports those goals.</p>
+     </div>
+    </div>
+    <div class="page-number">
+     3
+    </div>
+   </div><!-- PAGE 4: RATIONALE & INSTITUTIONAL CAPACITY -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <h3>Rationale</h3>
+      <p>Training youths in digital entrepreneurship will:</p>
+      <div class="grid-2">
+       <div class="grid-item">
+        ✓ Reduce unemployment
+       </div>
+       <div class="grid-item">
+        ✓ Increase self-employment
+       </div>
+       <div class="grid-item">
+        ✓ Create access to foreign income
+       </div>
+       <div class="grid-item">
+        ✓ Improve digital inclusion
+       </div>
+      </div>
+     </div>
+     <div class="section">
+      <h3>Institutional Capacity / Profile</h3>
+      <p><strong>OnlineGigsServices</strong> is a registered digital training and online entrepreneurship company focused on empowering youths with globally relevant, income-generating digital skills.</p>
+      <p><strong>Core areas of expertise:</strong></p>
+      <div class="grid-2">
+       <div class="grid-item">
+        Digital Skills Training
+       </div>
+       <div class="grid-item">
+        Freelancing Systems
+       </div>
+       <div class="grid-item">
+        Digital Entrepreneurship
+       </div>
+       <div class="grid-item">
+        Personal Branding
+       </div>
+       <div class="grid-item">
+        Online Income
+       </div>
+       <div class="grid-item">
+        Client Acquisition
+       </div>
+      </div>
+      <p style="margin-top: 8px;"><em>The organization operates with a practical, beginner-friendly approach, combining training, mentorship, and job-readiness support.</em></p>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">IV</span>
+       <h2>Goal</h2>
+      </div>
+      <div class="info-box">
+       To empower Akwa Ibom youths with employable, high-demand digital skills and entrepreneurial capacity that enable <strong>sustainable income generation</strong> and participation in the <strong>global digital economy</strong>.
       </div>
      </div>
     </div>
-   </div><!-- Instructions -->
-   <div class="no-print mt-6 text-center text-gray-600 text-sm max-w-md">
-    <p class="mb-2"><strong>How to use:</strong></p>
-    <p>Use the page navigation buttons to view each page, then click "Print All Pages" to save both as PDF. When printed, both pages will be included in the file.</p>
+    <div class="page-number">
+     4
+    </div>
+   </div><!-- PAGE 5: OBJECTIVES (Part 1) -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">V</span>
+       <h2>Objectives</h2>
+      </div>
+      <div class="objective-item">
+       <div class="objective-number">
+        1
+       </div>
+       <div class="objective-content">
+        <h4>Train Youths in High-Demand Digital Skills</h4>
+        <p>Provide comprehensive training in globally relevant digital competencies including web design, digital marketing, content creation, social media management, freelancing platforms, and online business development.</p>
+       </div>
+      </div>
+      <div class="objective-item">
+       <div class="objective-number">
+        2
+       </div>
+       <div class="objective-content">
+        <h4>Build Digital Entrepreneurship Mindset</h4>
+        <p>Develop entrepreneurial thinking, business problem-solving skills, and confidence to start and scale digital businesses or freelance ventures with sustainable income models.</p>
+       </div>
+      </div>
+      <div class="objective-item">
+       <div class="objective-number">
+        3
+       </div>
+       <div class="objective-content">
+        <h4>Enable Personal Branding for Global Markets</h4>
+        <p>Equip participants with personal branding and portfolio development skills to position themselves attractively to global clients and employers on international platforms.</p>
+       </div>
+      </div>
+      <div class="objective-item">
+       <div class="objective-number">
+        4
+       </div>
+       <div class="objective-content">
+        <h4>Connect Youths to Global Income Opportunities</h4>
+        <p>Facilitate access to international freelancing platforms, remote work opportunities, and client networks, enabling beneficiaries to earn in foreign currencies.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="page-number">
+     5
+    </div>
+   </div><!-- PAGE 6: OBJECTIVES (Part 2) -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="objective-item">
+       <div class="objective-number">
+        5
+       </div>
+       <div class="objective-content">
+        <h4>Provide Certification and Job-Readiness Support</h4>
+        <p>Award recognized certifications upon completion and provide ongoing mentorship, job placement assistance, and support for maintaining employment or scaling digital businesses.</p>
+       </div>
+      </div>
+      <div class="objective-item">
+       <div class="objective-number">
+        6
+       </div>
+       <div class="objective-content">
+        <h4>Create Sustainable Community &amp; Peer Support Network</h4>
+        <p>Build lasting alumni networks and peer support communities where graduates continue to collaborate, share opportunities, and support each other's growth in the digital economy.</p>
+       </div>
+      </div>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">VI</span>
+       <h2>Methodology</h2>
+      </div>
+      <p>The program will adopt a practical, outcome-driven methodology:</p>
+      <ul class="bullet-list">
+       <li>Hybrid training (physical + virtual)</li>
+       <li>Project-based learning</li>
+       <li>Real-world assignments</li>
+       <li>Mentorship and accountability</li>
+       <li>Portfolio development</li>
+       <li>Job readiness coaching</li>
+      </ul>
+      <h3>Training Delivery Methods</h3>
+      <ul class="bullet-list">
+       <li>Workshops and classes</li>
+       <li>Digital learning platforms</li>
+       <li>Group coaching and mentoring</li>
+       <li>Hands-on projects</li>
+      </ul>
+     </div>
+    </div>
+    <div class="page-number">
+     6
+    </div>
+   </div><!-- PAGE 7: WORK PLAN (Part 1) -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">VII</span>
+       <h2>Work Plan</h2>
+      </div>
+      <div class="card">
+       <h3>Phase 1: Awareness &amp; Mobilization</h3>
+       <ul class="bullet-list">
+        <li>Publicity and sensitization campaigns</li>
+        <li>Registration of interested youths</li>
+       </ul>
+      </div>
+      <div class="card">
+       <h3>Phase 2: Selection &amp; Onboarding</h3>
+       <ul class="bullet-list">
+        <li>Screening and onboarding of participants</li>
+        <li>Orientation and expectation setting</li>
+       </ul>
+      </div>
+      <div class="card">
+       <h3>Phase 3: Training Delivery</h3>
+       <p>Participants trained in:</p>
+       <div class="grid-2">
+        <div class="grid-item">
+         Content writing
+        </div>
+        <div class="grid-item">
+         Social media
+        </div>
+        <div class="grid-item">
+         Virtual assistance
+        </div>
+        <div class="grid-item">
+         Graphic design
+        </div>
+        <div class="grid-item">
+         Digital marketing
+        </div>
+        <div class="grid-item">
+         Freelancing
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="page-number">
+     7
+    </div>
+   </div><!-- PAGE 8: WORK PLAN (Part 2) -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="card">
+       <h3>Phase 4: Certification &amp; Portfolio Development</h3>
+       <ul class="bullet-list">
+        <li>Skill assessments</li>
+        <li>Certification and credentials</li>
+        <li>Portfolio and profile creation</li>
+       </ul>
+      </div>
+      <div class="card">
+       <h3>Phase 5: Job Placement &amp; Income Support</h3>
+       <ul class="bullet-list">
+        <li>Freelancing platform onboarding</li>
+        <li>Client pitching guidance</li>
+        <li>Remote job search support</li>
+       </ul>
+      </div>
+      <div class="section">
+       <div class="section-title"><span class="number-badge">VIII</span>
+        <h2>Sustainability Plan</h2>
+       </div>
+       <ul class="bullet-list">
+        <li>Train-the-trainer model to develop local facilitators</li>
+        <li>Alumni mentorship network</li>
+        <li>Continuous learning platform</li>
+        <li>Partnerships with private sector and digital companies</li>
+        <li>Expansion to schools and tertiary institutions</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="page-number">
+     8
+    </div>
+   </div><!-- PAGE 9: RISK ANALYSIS -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">IX</span>
+       <h2>Risk Analysis &amp; Mitigation</h2>
+      </div>
+      <table>
+       <thead>
+        <tr>
+         <th>Risk</th>
+         <th>Mitigation Strategy</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>Low attendance</td>
+         <td>Strong mobilization campaigns and progress monitoring</td>
+        </tr>
+        <tr>
+         <td>Poor internet access</td>
+         <td>Hybrid training model with offline support options</td>
+        </tr>
+        <tr>
+         <td>High dropout rate</td>
+         <td>Mentorship and accountability systems in place</td>
+        </tr>
+        <tr>
+         <td>Low job placement</td>
+         <td>Extended support and industry partnerships</td>
+        </tr>
+        <tr>
+         <td>Funding delays</td>
+         <td>Phased implementation to manage cash flow</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">X</span>
+       <h2>Monitoring &amp; Evaluation</h2>
+      </div>
+      <h3>Tracking Mechanisms</h3>
+      <ul class="bullet-list">
+       <li>Attendance tracking</li>
+       <li>Skill assessments</li>
+       <li>Completion records</li>
+       <li>Income tracking</li>
+      </ul>
+     </div>
+    </div>
+    <div class="page-number">
+     9
+    </div>
+   </div><!-- PAGE 10: M&E KPIs -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <h3>Key Performance Indicators (KPIs)</h3>
+      <div class="grid-2">
+       <div class="card"><strong>Number Trained:</strong><br>
+        100-5,000+
+       </div>
+       <div class="card"><strong>Number Certified:</strong><br>
+        80%+ Success
+       </div>
+       <div class="card"><strong>Number Earning:</strong><br>
+        60%+ Employment
+       </div>
+       <div class="card"><strong>Monthly Reports:</strong><br>
+        Quarterly Updates
+       </div>
+      </div>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">XI</span>
+       <h2>Budget Breakdown</h2>
+      </div>
+      <table>
+       <thead>
+        <tr>
+         <th>Participant Count</th>
+         <th>Cost Per Person</th>
+         <th>Total Budget</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>100</td>
+         <td>₦250,000</td>
+         <td><strong>₦25,000,000</strong></td>
+        </tr>
+        <tr>
+         <td>500</td>
+         <td>₦200,000</td>
+         <td><strong>₦100,000,000</strong></td>
+        </tr>
+        <tr>
+         <td>1,000</td>
+         <td>₦170,000</td>
+         <td><strong>₦170,000,000</strong></td>
+        </tr>
+        <tr>
+         <td>5,000</td>
+         <td>₦150,000</td>
+         <td><strong>₦750,000,000</strong></td>
+        </tr>
+       </tbody>
+      </table>
+      <h3 style="margin-top: 8px;">Budget Allocation Includes:</h3>
+      <ul class="bullet-list">
+       <li>Training materials and resources</li>
+       <li>Facilitators and mentorship staff</li>
+       <li>Training facilities and logistics</li>
+       <li>Digital platforms and online tools</li>
+       <li>Certification services</li>
+       <li>Monitoring and evaluation</li>
+       <li>Administration and coordination</li>
+      </ul>
+     </div>
+    </div>
+    <div class="page-number">
+     10
+    </div>
+   </div><!-- PAGE 11: REFERENCES -->
+   <div class="a4-page">
+    <div class="a4-content">
+     <div class="section">
+      <div class="section-title"><span class="number-badge">XII</span>
+       <h2>References &amp; Alignment</h2>
+      </div>
+      <ul class="bullet-list">
+       <li>National Digital Economy Policy and Strategy (Nigeria)</li>
+       <li>ARISe Agenda – Akwa Ibom State Development Framework</li>
+       <li>Global Digital Skills and Remote Work Trends (2023-2024)</li>
+       <li>Youth Employment and Digital Inclusion Research Reports</li>
+      </ul>
+     </div>
+     <div class="section">
+      <div class="section-title"><span class="number-badge">XIII</span>
+       <h2>Conclusion</h2>
+      </div>
+      <p>This proposal presents a powerful and transformative opportunity to empower Akwa Ibom youths with the skills, confidence, and connections they need to compete in the global digital economy.</p>
+      <div class="info-box">
+       By partnering with OnlineGigsServices under the ARISe Agenda, Akwa Ibom State will not only reduce unemployment and underemployment but also position itself as a leading hub for digital talent and online entrepreneurship in Nigeria and beyond.
+      </div>
+      <p>The investment in youth digital skills is an investment in the future prosperity, innovation, and economic resilience of Akwa Ibom State.</p>
+     </div>
+    </div>
+    <div class="page-number">
+     11
+    </div>
    </div>
   </div>
   <script>
-    let currentPage = 1;
-    
     const defaultConfig = {
-      church_name: "ALL NATIONS CHRISTIAN ASSEMBLY",
-      location: "UMUOJIMA OGBU",
-      tagline: "Throne of Holiness & Righteousness",
-      pastor_name: "PASTOR ALEX EMMANUEL",
-      title: "GENERAL OVERSEER",
-      phone1: "08035955780",
-      phone2: "08067220509"
+      main_title: "Digital Entrepreneurship: Empowering Akwa Ibom Youth with Employable High-Demand Digital Skills and Online Earnings",
+      submitted_by: "OnlineGigsServices",
+      recipient_title: "The Honourable Commissioner",
+      ministry_name: "Ministry of Youth Development, Akwa Ibom State"
     };
-    
-    function showPage(pageNum) {
-      currentPage = pageNum;
-      document.getElementById('page1').style.display = pageNum === 1 ? 'block' : 'none';
-      document.getElementById('page2').style.display = pageNum === 2 ? 'block' : 'none';
-      document.getElementById('prev-btn').disabled = pageNum === 1;
-      document.getElementById('next-btn').disabled = pageNum === 2;
-      document.getElementById('page-indicator').textContent = `Page ${pageNum} of 2`;
-    }
-    
+
     async function onConfigChange(config) {
-      document.getElementById('church-name').textContent = config.church_name || defaultConfig.church_name;
-      document.getElementById('location').textContent = config.location || defaultConfig.location;
-      document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
-      document.getElementById('pastor-name').textContent = config.pastor_name || defaultConfig.pastor_name;
-      document.getElementById('title').textContent = config.title || defaultConfig.title;
-      document.getElementById('phone1').textContent = config.phone1 || defaultConfig.phone1;
-      document.getElementById('phone2').textContent = config.phone2 || defaultConfig.phone2;
-      
-      document.getElementById('church-name-2').textContent = config.church_name || defaultConfig.church_name;
-      document.getElementById('location-2').textContent = config.location || defaultConfig.location;
-      document.getElementById('tagline-2').textContent = config.tagline || defaultConfig.tagline;
-      document.getElementById('pastor-name-2').textContent = config.pastor_name || defaultConfig.pastor_name;
-      document.getElementById('title-2').textContent = config.title || defaultConfig.title;
-      document.getElementById('phone1-2').textContent = config.phone1 || defaultConfig.phone1;
-      document.getElementById('phone2-2').textContent = config.phone2 || defaultConfig.phone2;
+      document.getElementById('main-title').textContent = config.main_title || defaultConfig.main_title;
+      document.getElementById('submitted-by').textContent = config.submitted_by || defaultConfig.submitted_by;
+      document.getElementById('recipient-title').textContent = config.recipient_title || defaultConfig.recipient_title;
+      document.getElementById('ministry-name').textContent = config.ministry_name || defaultConfig.ministry_name;
     }
-    
+
     function mapToCapabilities(config) {
       return {
         recolorables: [],
@@ -563,19 +875,16 @@
         fontSizeable: undefined
       };
     }
-    
+
     function mapToEditPanelValues(config) {
       return new Map([
-        ["church_name", config.church_name || defaultConfig.church_name],
-        ["location", config.location || defaultConfig.location],
-        ["tagline", config.tagline || defaultConfig.tagline],
-        ["pastor_name", config.pastor_name || defaultConfig.pastor_name],
-        ["title", config.title || defaultConfig.title],
-        ["phone1", config.phone1 || defaultConfig.phone1],
-        ["phone2", config.phone2 || defaultConfig.phone2]
+        ["main_title", config.main_title || defaultConfig.main_title],
+        ["submitted_by", config.submitted_by || defaultConfig.submitted_by],
+        ["recipient_title", config.recipient_title || defaultConfig.recipient_title],
+        ["ministry_name", config.ministry_name || defaultConfig.ministry_name]
       ]);
     }
-    
+
     if (window.elementSdk) {
       window.elementSdk.init({
         defaultConfig,
@@ -585,5 +894,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd57b8306abccc1',t:'MTc2ODMxMzQ4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd678096409ccc1',t:'MTc2ODMyMzgyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
