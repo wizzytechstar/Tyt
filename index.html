@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Church Letterhead - All Nations Christian Assembly</title>
+  <title>Hospital Application Letter - Pages 1 &amp; 2</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
@@ -26,6 +26,8 @@
       }
       .letterhead-page {
         box-shadow: none !important;
+        margin: 0 !important;
+        page-break-after: always;
       }
     }
     
@@ -39,10 +41,11 @@
     
     .letterhead-page {
       width: 210mm;
-      min-height: 297mm;
+      height: 297mm;
       background: #fffef9;
       position: relative;
       overflow: hidden;
+      margin-bottom: 16px;
     }
     
     .floral-border-left {
@@ -66,8 +69,12 @@
     .content-area {
       margin-left: 35mm;
       margin-right: 35mm;
-      padding-top: 25mm;
+      padding-top: 18mm;
       padding-bottom: 20mm;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
     }
     
     .divider-line {
@@ -75,23 +82,33 @@
       background: linear-gradient(90deg, transparent, #8B4513, #D4AF37, #8B4513, transparent);
     }
     
-    .writing-lines {
-      border-bottom: 1px solid #d4c4a8;
-      min-height: 12mm;
-      margin-bottom: 2mm;
+    .letter-body {
+      flex-grow: 1;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    
+    .letter-body p {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    .page-hidden {
+      display: none !important;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full bg-gray-100 overflow-auto">
-  <div class="min-h-full flex flex-col items-center py-8"><!-- Print Button -->
-   <div class="no-print mb-6 flex gap-4"><button onclick="window.print()" class="px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center gap-2">
+  <div class="min-h-full flex flex-col items-center py-8"><!-- Print/Navigation Controls -->
+   <div class="no-print mb-6 flex gap-4 items-center"><button onclick="window.print()" class="px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center gap-2">
      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-     </svg> Print Letterhead </button>
-    <p class="text-gray-600 text-sm self-center italic">Click to print or save as PDF</p>
-   </div><!-- A4 Letterhead Page -->
-   <div class="letterhead-page shadow-2xl relative"><!-- Left Floral Border -->
+     </svg> Print All Pages </button>
+    <div class="flex gap-2 items-center"><button id="prev-btn" onclick="showPage(1)" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded disabled:opacity-50">← Page 1</button> <span id="page-indicator" class="text-gray-600 font-semibold">Page 1 of 2</span> <button id="next-btn" onclick="showPage(2)" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded">Page 2 →</button>
+    </div>
+   </div><!-- PAGE 1 -->
+   <div id="page1" class="letterhead-page shadow-2xl relative"><!-- Left Floral Border -->
     <div class="floral-border-left">
      <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full"><defs>
        <lineargradient id="flowerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -112,30 +129,30 @@
         <stop offset="0%" style="stop-color:#6B8E4E" />
         <stop offset="100%" style="stop-color:#4A6B35" />
        </lineargradient>
-      </defs> <!-- Main vine --> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGrad)" stroke-width="3" opacity="0.8" /> <!-- Decorative flowers and leaves repeating pattern --> <!-- Top cluster --> <g transform="translate(40, 60)"><!-- Rose -->
+      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGrad)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
        <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1)" />
        <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
        <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
        <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
-       <circle cx="0" cy="0" r="4" fill="#C77D87" /> <!-- Leaves -->
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
        <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGrad)" />
        <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGrad)" />
-      </g> <!-- Small buds --> <g transform="translate(70, 130)">
+      </g> <g transform="translate(70, 130)">
        <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1)" />
        <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGrad)" />
-      </g> <!-- Second cluster --> <g transform="translate(30, 200)">
+      </g> <g transform="translate(30, 200)">
        <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2)" />
        <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
        <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
        <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
        <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGrad)" />
        <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGrad)" />
-      </g> <!-- Lily flowers --> <g transform="translate(65, 280)">
+      </g> <g transform="translate(65, 280)">
        <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
        <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1)" opacity="0.7" />
        <circle cx="0" cy="-5" r="3" fill="#D4919A" />
        <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGrad)" />
-      </g> <!-- Third cluster --> <g transform="translate(25, 370)">
+      </g> <g transform="translate(25, 370)">
        <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1)" />
        <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2)" />
        <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2)" />
@@ -143,22 +160,22 @@
        <circle cx="0" cy="0" r="5" fill="#C77D87" />
        <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGrad)" />
        <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGrad)" />
-      </g> <!-- Small accent flowers --> <g transform="translate(75, 450)">
+      </g> <g transform="translate(75, 450)">
        <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
        <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
        <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGrad)" />
-      </g> <!-- Fourth cluster --> <g transform="translate(45, 530)">
+      </g> <g transform="translate(45, 530)">
        <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2)" />
        <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
        <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
        <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
        <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGrad)" />
        <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGrad)" />
-      </g> <!-- Buds --> <g transform="translate(20, 610)">
+      </g> <g transform="translate(20, 610)">
        <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1)" />
        <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGrad)" />
        <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGrad)" />
-      </g> <!-- Fifth cluster --> <g transform="translate(60, 700)">
+      </g> <g transform="translate(60, 700)">
        <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1)" />
        <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
        <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2)" />
@@ -166,14 +183,14 @@
        <circle cx="0" cy="0" r="4" fill="#C77D87" />
        <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGrad)" />
        <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGrad)" />
-      </g> <!-- Bottom accent --> <g transform="translate(35, 790)">
+      </g> <g transform="translate(35, 790)">
        <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2)" />
        <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
        <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGrad)" />
        <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGrad)" />
-      </g> <!-- Scattered small leaves --> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGrad)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGrad)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGrad)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGrad)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGrad)" opacity="0.7" />
+      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGrad)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGrad)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGrad)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGrad)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGrad)" opacity="0.7" />
      </svg>
-    </div><!-- Right Floral Border (mirrored) -->
+    </div><!-- Right Floral Border -->
     <div class="floral-border-right">
      <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full" style="transform: scaleX(-1);"><defs>
        <lineargradient id="flowerGrad1R" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -194,7 +211,7 @@
         <stop offset="0%" style="stop-color:#6B8E4E" />
         <stop offset="100%" style="stop-color:#4A6B35" />
        </lineargradient>
-      </defs> <!-- Main vine --> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradR)" stroke-width="3" opacity="0.8" /> <!-- Top cluster --> <g transform="translate(40, 60)">
+      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradR)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
        <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1R)" />
        <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
        <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2R)" />
@@ -257,56 +274,285 @@
      </svg>
     </div><!-- Content Area -->
     <div class="content-area relative z-10"><!-- Header Section -->
-     <div class="text-center mb-8"><!-- Cross Symbol -->
-      <div class="mb-4">
-       <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16" viewbox="0 0 64 64"><defs>
+     <div class="mb-4 pb-4 border-b-2 border-amber-200">
+      <div class="mb-2">
+       <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" viewbox="0 0 64 64"><defs>
          <lineargradient id="crossGold" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style="stop-color:#D4AF37" />
           <stop offset="50%" style="stop-color:#C5A028" />
           <stop offset="100%" style="stop-color:#B8962B" />
          </lineargradient>
-        </defs> <path d="M28 4 L36 4 L36 24 L56 24 L56 32 L36 32 L36 60 L28 60 L28 32 L8 32 L8 24 L28 24 Z" fill="url(#crossGold)" stroke="#8B7355" stroke-width="1" /> <circle cx="32" cy="28" r="6" fill="none" stroke="#8B7355" stroke-width="1" opacity="0.5" />
+        </defs> <path d="M28 4 L36 4 L36 24 L56 24 L56 32 L36 32 L36 60 L28 60 L28 32 L8 32 L8 24 L28 24 Z" fill="url(#crossGold)" stroke="#8B7355" stroke-width="1" />
        </svg>
-      </div><!-- Church Name -->
-      <h1 id="church-name" class="font-cinzel text-3xl font-bold tracking-wider mb-2" style="color: #4A3728;">ALL NATIONS CHRISTIAN ASSEMBLY</h1><!-- Location -->
-      <p id="location" class="font-cormorant text-xl tracking-wide mb-3" style="color: #6B5344;">UMUOJIMA OGBU</p><!-- Decorative Divider -->
-      <div class="flex items-center justify-center gap-3 mb-3">
-       <div class="w-16 h-px bg-gradient-to-r from-transparent to-amber-700"></div>
-       <svg class="w-6 h-6" viewbox="0 0 24 24" fill="#D4AF37"><path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z" />
+      </div>
+      <h1 id="church-name" class="font-cinzel text-2xl font-bold tracking-wider text-center" style="color: #4A3728;">ALL NATIONS CHRISTIAN ASSEMBLY</h1>
+      <p id="location" class="font-cormorant text-center text-sm tracking-wide" style="color: #6B5344;">UMUOJIMA OGBU</p>
+      <p id="tagline" class="font-cormorant text-center text-xs italic" style="color: #8B7355;">Throne of Holiness &amp; Righteousness</p>
+     </div><!-- Letter Body -->
+     <div class="letter-body font-cormorant" style="color: #3D2817;">
+      <p><strong>Dear Sir/Madam,</strong></p>
+      <p style="text-align: center; font-weight: 600; margin-top: 8px; margin-bottom: 8px;">APPLICATION FOR HOSPITAL VISITATION</p>
+      <p>We respectfully request permission for our team to visit and pray for patients at your esteemed hospital.</p>
+      <p>We assure you that their visit will be brief, respectful and conducted in a manner that does not disrupt hospital operations or compromise patient care.</p>
+      <p>They would be visiting once a week, if approved.</p>
+      <p>We will ensure that our team complies with all hospital guidelines and regulations.</p>
+      <p>Thanks in advance for considering our request.</p>
+      <p style="margin-top: 12px;">Sincerely,</p>
+     </div><!-- Signature Section -->
+     <div class="mt-auto">
+      <div class="space-y-1 font-cormorant" style="color: #3D2817;">
+       <p style="margin-top: 30px;"><strong id="pastor-name">PASTOR ALEX EMMANUEL</strong></p>
+       <p id="title" style="font-weight: 600;">GENERAL OVERSEER</p>
+       <p id="phone1">08035955780</p>
+       <p id="phone2">08067220509</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- PAGE 2 (Continuation) -->
+   <div id="page2" class="letterhead-page shadow-2xl relative page-hidden"><!-- Left Floral Border -->
+    <div class="floral-border-left">
+     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full"><defs>
+       <lineargradient id="flowerGrad1P2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E8B4BC" />
+        <stop offset="50%" style="stop-color:#D4A5AC" />
+        <stop offset="100%" style="stop-color:#C99BA2" />
+       </lineargradient>
+       <lineargradient id="flowerGrad2P2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#F5D7DC" />
+        <stop offset="100%" style="stop-color:#E8C4CA" />
+       </lineargradient>
+       <lineargradient id="leafGradP2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#7BA05B" />
+        <stop offset="50%" style="stop-color:#5C8A3E" />
+        <stop offset="100%" style="stop-color:#4A7030" />
+       </lineargradient>
+       <lineargradient id="vineGradP2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#6B8E4E" />
+        <stop offset="100%" style="stop-color:#4A6B35" />
+       </lineargradient>
+      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradP2)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
+       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1P2)" />
+       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
+       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGradP2)" />
+       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(70, 130)">
+       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1P2)" />
+       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(30, 200)">
+       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
+       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGradP2)" />
+       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(65, 280)">
+       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
+       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1P2)" opacity="0.7" />
+       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
+       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(25, 370)">
+       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1P2)" />
+       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
+       <circle cx="0" cy="0" r="5" fill="#C77D87" />
+       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGradP2)" />
+       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(75, 450)">
+       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
+       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
+       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(45, 530)">
+       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGradP2)" />
+       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(20, 610)">
+       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1P2)" />
+       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGradP2)" />
+       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(60, 700)">
+       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1P2)" />
+       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2P2)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
+       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGradP2)" />
+       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGradP2)" />
+      </g> <g transform="translate(35, 790)">
+       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2P2)" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGradP2)" />
+       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGradP2)" />
+      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGradP2)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGradP2)" opacity="0.7" />
+     </svg>
+    </div><!-- Right Floral Border -->
+    <div class="floral-border-right">
+     <svg viewbox="0 0 120 842" preserveaspectratio="xMidYMid slice" class="h-full w-full" style="transform: scaleX(-1);"><defs>
+       <lineargradient id="flowerGrad1RP2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E8B4BC" />
+        <stop offset="50%" style="stop-color:#D4A5AC" />
+        <stop offset="100%" style="stop-color:#C99BA2" />
+       </lineargradient>
+       <lineargradient id="flowerGrad2RP2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#F5D7DC" />
+        <stop offset="100%" style="stop-color:#E8C4CA" />
+       </lineargradient>
+       <lineargradient id="leafGradRP2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#7BA05B" />
+        <stop offset="50%" style="stop-color:#5C8A3E" />
+        <stop offset="100%" style="stop-color:#4A7030" />
+       </lineargradient>
+       <lineargradient id="vineGradRP2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#6B8E4E" />
+        <stop offset="100%" style="stop-color:#4A6B35" />
+       </lineargradient>
+      </defs> <path d="M60 0 Q80 50, 55 100 Q30 150, 65 200 Q90 250, 50 300 Q20 350, 60 400 Q95 450, 45 500 Q15 550, 70 600 Q100 650, 40 700 Q10 750, 65 800 Q80 830, 60 842" fill="none" stroke="url(#vineGradRP2)" stroke-width="3" opacity="0.8" /> <g transform="translate(40, 60)">
+       <ellipse cx="0" cy="0" rx="18" ry="16" fill="url(#flowerGrad1RP2)" />
+       <ellipse cx="-8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="8" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
+       <path d="M-25 10 Q-35 0, -25 -10 Q-15 0, -25 10" fill="url(#leafGradRP2)" />
+       <path d="M25 10 Q35 0, 25 -10 Q15 0, 25 10" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(70, 130)">
+       <ellipse cx="0" cy="0" rx="8" ry="10" fill="url(#flowerGrad1RP2)" />
+       <path d="M-12 5 Q-18 0, -10 -8 Q-5 0, -12 5" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(30, 200)">
+       <ellipse cx="0" cy="0" rx="15" ry="14" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="-6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <ellipse cx="6" cy="-4" rx="8" ry="7" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="5" fill="#E8B4BC" />
+       <path d="M-22 8 Q-30 0, -20 -10 Q-12 0, -22 8" fill="url(#leafGradRP2)" />
+       <path d="M22 8 Q30 0, 20 -10 Q12 0, 22 8" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(65, 280)">
+       <path d="M0 -15 Q-8 -8, -5 0 Q0 5, 5 0 Q8 -8, 0 -15" fill="#F8E8EB" />
+       <path d="M0 -15 Q-12 -5, -10 5 Q0 10, 10 5 Q12 -5, 0 -15" fill="url(#flowerGrad1RP2)" opacity="0.7" />
+       <circle cx="0" cy="-5" r="3" fill="#D4919A" />
+       <path d="M15 0 Q20 -8, 12 -15 Q8 -5, 15 0" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(25, 370)">
+       <ellipse cx="0" cy="0" rx="20" ry="18" fill="url(#flowerGrad1RP2)" />
+       <ellipse cx="-10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="10" cy="-6" rx="11" ry="10" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="0" cy="6" rx="9" ry="8" fill="#D4919A" />
+       <circle cx="0" cy="0" r="5" fill="#C77D87" />
+       <path d="M-28 12 Q-38 0, -26 -12 Q-16 0, -28 12" fill="url(#leafGradRP2)" />
+       <path d="M28 12 Q38 0, 26 -12 Q16 0, 28 12" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(75, 450)">
+       <circle cx="0" cy="0" r="6" fill="#F5D7DC" />
+       <circle cx="0" cy="0" r="3" fill="#E8B4BC" />
+       <path d="M10 3 Q15 -3, 8 -10 Q3 -2, 10 3" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(45, 530)">
+       <ellipse cx="0" cy="0" rx="16" ry="15" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="-7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <ellipse cx="7" cy="-5" rx="9" ry="8" fill="#F5E1E4" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-24 10 Q-32 0, -22 -12 Q-14 0, -24 10" fill="url(#leafGradRP2)" />
+       <path d="M24 10 Q32 0, 22 -12 Q14 0, 24 10" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(20, 610)">
+       <ellipse cx="0" cy="0" rx="10" ry="12" fill="url(#flowerGrad1RP2)" />
+       <path d="M-15 5 Q-22 0, -13 -10 Q-6 0, -15 5" fill="url(#leafGradRP2)" />
+       <path d="M15 5 Q22 0, 13 -10 Q6 0, 15 5" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(60, 700)">
+       <ellipse cx="0" cy="0" rx="18" ry="17" fill="url(#flowerGrad1RP2)" />
+       <ellipse cx="-9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="9" cy="-5" rx="10" ry="9" fill="url(#flowerGrad2RP2)" />
+       <ellipse cx="0" cy="5" rx="8" ry="7" fill="#D4919A" />
+       <circle cx="0" cy="0" r="4" fill="#C77D87" />
+       <path d="M-26 10 Q-35 0, -24 -12 Q-15 0, -26 10" fill="url(#leafGradRP2)" />
+       <path d="M26 10 Q35 0, 24 -12 Q15 0, 26 10" fill="url(#leafGradRP2)" />
+      </g> <g transform="translate(35, 790)">
+       <ellipse cx="0" cy="0" rx="12" ry="11" fill="url(#flowerGrad2RP2)" />
+       <circle cx="0" cy="0" r="4" fill="#E8B4BC" />
+       <path d="M-18 8 Q-25 0, -16 -10 Q-9 0, -18 8" fill="url(#leafGradRP2)" />
+       <path d="M18 8 Q25 0, 16 -10 Q9 0, 18 8" fill="url(#leafGradRP2)" />
+      </g> <path d="M85 180 Q95 170, 85 160 Q75 170, 85 180" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M15 320 Q5 310, 15 300 Q25 310, 15 320" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M90 420 Q100 410, 90 400 Q80 410, 90 420" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M10 560 Q0 550, 10 540 Q20 550, 10 560" fill="url(#leafGradRP2)" opacity="0.7" /> <path d="M85 650 Q95 640, 85 630 Q75 640, 85 650" fill="url(#leafGradRP2)" opacity="0.7" />
+     </svg>
+    </div><!-- Content Area - Page 2 -->
+    <div class="content-area relative z-10"><!-- Header Section -->
+     <div class="mb-4 pb-4 border-b-2 border-amber-200">
+      <div class="mb-2">
+       <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" viewbox="0 0 64 64"><defs>
+         <lineargradient id="crossGold2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#D4AF37" />
+          <stop offset="50%" style="stop-color:#C5A028" />
+          <stop offset="100%" style="stop-color:#B8962B" />
+         </lineargradient>
+        </defs> <path d="M28 4 L36 4 L36 24 L56 24 L56 32 L36 32 L36 60 L28 60 L28 32 L8 32 L8 24 L28 24 Z" fill="url(#crossGold2)" stroke="#8B7355" stroke-width="1" />
        </svg>
-       <div class="w-16 h-px bg-gradient-to-l from-transparent to-amber-700"></div>
-      </div><!-- Tagline -->
-      <p id="tagline" class="font-cormorant text-lg italic tracking-wide" style="color: #8B7355;">Throne of Holiness &amp; Righteousness</p><!-- Main Divider Line -->
-      <div class="divider-line mt-6 mx-auto" style="max-width: 80%;"></div>
-     </div><!-- Writing Lines Section -->
-     <div class="mt-12 space-y-1">
-      <div class="writing-lines"></div>
-      <div class="writing-lines"></div>
-      <div class="writing-lines"></div>
-      <div class="writing-lines"></div>
-     </div><!-- Footer -->
-     <div class="mt-8 text-center">
-      <div class="divider-line mx-auto mb-4" style="max-width: 60%;"></div>
-      <p class="font-cormorant text-sm italic" style="color: #8B7355;">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
+      </div>
+      <h1 id="church-name-2" class="font-cinzel text-2xl font-bold tracking-wider text-center" style="color: #4A3728;">ALL NATIONS CHRISTIAN ASSEMBLY</h1>
+      <p id="location-2" class="font-cormorant text-center text-sm tracking-wide" style="color: #6B5344;">UMUOJIMA OGBU</p>
+      <p id="tagline-2" class="font-cormorant text-center text-xs italic" style="color: #8B7355;">Throne of Holiness &amp; Righteousness</p>
+     </div><!-- Letter Body Page 2 -->
+     <div class="letter-body font-cormorant" style="color: #3D2817;">
+      <p><strong>Dear Sir/Madam,</strong></p>
+      <p style="text-align: center; font-weight: 600; margin-top: 8px; margin-bottom: 8px;">APPLICATION FOR HOSPITAL VISITATION</p>
+      <p>We respectfully request permission for our team to visit and pray for patients at your esteemed hospital.</p>
+      <p>We assure you that their visit will be brief, respectful and conducted in a manner that does not disrupt hospital operations or compromise patient care.</p>
+      <p>They would be visiting once a week, if approved.</p>
+      <p>We will ensure that our team complies with all hospital guidelines and regulations.</p>
+      <p>Thanks in advance for considering our request.</p>
+      <p style="margin-top: 12px;">Sincerely,</p>
+     </div><!-- Signature Section -->
+     <div class="mt-auto">
+      <div class="space-y-1 font-cormorant" style="color: #3D2817;">
+       <p style="margin-top: 30px;"><strong id="pastor-name-2">PASTOR ALEX EMMANUEL</strong></p>
+       <p id="title-2" style="font-weight: 600;">GENERAL OVERSEER</p>
+       <p id="phone1-2">08035955780</p>
+       <p id="phone2-2">08067220509</p>
+      </div>
      </div>
     </div>
    </div><!-- Instructions -->
    <div class="no-print mt-6 text-center text-gray-600 text-sm max-w-md">
     <p class="mb-2"><strong>How to use:</strong></p>
-    <p>Click "Print Letterhead" and select "Save as PDF" to download, or print directly to your printer. Set paper size to A4 for best results.</p>
+    <p>Use the page navigation buttons to view each page, then click "Print All Pages" to save both as PDF. When printed, both pages will be included in the file.</p>
    </div>
   </div>
   <script>
+    let currentPage = 1;
+    
     const defaultConfig = {
       church_name: "ALL NATIONS CHRISTIAN ASSEMBLY",
       location: "UMUOJIMA OGBU",
-      tagline: "Throne of Holiness & Righteousness"
+      tagline: "Throne of Holiness & Righteousness",
+      pastor_name: "PASTOR ALEX EMMANUEL",
+      title: "GENERAL OVERSEER",
+      phone1: "08035955780",
+      phone2: "08067220509"
     };
+    
+    function showPage(pageNum) {
+      currentPage = pageNum;
+      document.getElementById('page1').style.display = pageNum === 1 ? 'block' : 'none';
+      document.getElementById('page2').style.display = pageNum === 2 ? 'block' : 'none';
+      document.getElementById('prev-btn').disabled = pageNum === 1;
+      document.getElementById('next-btn').disabled = pageNum === 2;
+      document.getElementById('page-indicator').textContent = `Page ${pageNum} of 2`;
+    }
     
     async function onConfigChange(config) {
       document.getElementById('church-name').textContent = config.church_name || defaultConfig.church_name;
       document.getElementById('location').textContent = config.location || defaultConfig.location;
       document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('pastor-name').textContent = config.pastor_name || defaultConfig.pastor_name;
+      document.getElementById('title').textContent = config.title || defaultConfig.title;
+      document.getElementById('phone1').textContent = config.phone1 || defaultConfig.phone1;
+      document.getElementById('phone2').textContent = config.phone2 || defaultConfig.phone2;
+      
+      document.getElementById('church-name-2').textContent = config.church_name || defaultConfig.church_name;
+      document.getElementById('location-2').textContent = config.location || defaultConfig.location;
+      document.getElementById('tagline-2').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('pastor-name-2').textContent = config.pastor_name || defaultConfig.pastor_name;
+      document.getElementById('title-2').textContent = config.title || defaultConfig.title;
+      document.getElementById('phone1-2').textContent = config.phone1 || defaultConfig.phone1;
+      document.getElementById('phone2-2').textContent = config.phone2 || defaultConfig.phone2;
     }
     
     function mapToCapabilities(config) {
@@ -322,7 +568,11 @@
       return new Map([
         ["church_name", config.church_name || defaultConfig.church_name],
         ["location", config.location || defaultConfig.location],
-        ["tagline", config.tagline || defaultConfig.tagline]
+        ["tagline", config.tagline || defaultConfig.tagline],
+        ["pastor_name", config.pastor_name || defaultConfig.pastor_name],
+        ["title", config.title || defaultConfig.title],
+        ["phone1", config.phone1 || defaultConfig.phone1],
+        ["phone2", config.phone2 || defaultConfig.phone2]
       ]);
     }
     
@@ -335,5 +585,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd55f75d6aca17a',t:'MTc2ODMxMjMzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd57b8306abccc1',t:'MTc2ODMxMzQ4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
